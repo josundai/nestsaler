@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp">
+
+            <TextView
+                android:id="@+id/id_txt_shopping_card"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/ic_card"
+                android:drawablePadding="5dp"
+                android:text="12345678987"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_middle"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/id_txt_shopping_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="交易成功"
+                android:textColor="@color/deeperpink"
+                android:textSize="@dimen/font_smaller" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/divider_horizontal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/id_txt_shopping_time"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/icon_clock"
+                android:drawablePadding="5dp"
+                android:text="@string/shop_history"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/font_small"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/id_txt_shopping_cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-150积分"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_middle" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_alignParentBottom="true" />
+</LinearLayout>

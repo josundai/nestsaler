@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\project\nestsaler\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="95fd37732ec852e99f07eeb516a3650172f1d136">
+        <dex dex="D:\project\nestsaler\app\build\intermediates\pre-dexed\debug\classes-440d5b6f3732d6853ad70b0317fbdcbe2c6205d0.jar" />
+    </item>
+    <item
+        jar="D:\project\nestsaler\app\libs\libammsdk.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d7c2f29c05b35e8c8713be2b81c41cf18f98b64a">
+        <dex dex="D:\project\nestsaler\app\build\intermediates\pre-dexed\debug\libammsdk-f6c594edfcdc585181d744ba7687842b06ef0ae2.jar" />
+    </item>
+    <item
+        jar="D:\project\nestsaler\app\build\intermediates\exploded-aar\NestSaler\library\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="70e56ab69f77045d5cd2fb1f42ec8412971a871d">
+        <dex dex="D:\project\nestsaler\app\build\intermediates\pre-dexed\debug\classes-0852f38d56b806c863eaaaeba7dda73b558cd26e.jar" />
+    </item>
+    <item
+        jar="D:\project\nestsaler\app\libs\android-async-http-1.4.5.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="77bf7cacf9cefe19dc105e5425d2eb1bb5285881">
+        <dex dex="D:\project\nestsaler\app\build\intermediates\pre-dexed\debug\android-async-http-1.4.5-b07d06d14644263bd31b23b42fa8b688d8c68fad.jar" />
+    </item>
+    <item
+        jar="D:\project\nestsaler\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="686344a780033e4ba22b926cd225f8d4941247e6">
+        <dex dex="D:\project\nestsaler\app\build\intermediates\pre-dexed\debug\classes-15680e7bd48b4280435d92f17746c3f34a7d184e.jar" />
+    </item>
+    <item
+        jar="D:\project\nestsaler\app\libs\zxing.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e88c14e6e7daa0fa65172a62b54ee6a16ff4162d">
+        <dex dex="D:\project\nestsaler\app\build\intermediates\pre-dexed\debug\zxing-567aaefb1a1bf955f568bca0a76c1dcabde1c8b2.jar" />
+    </item>
+    <item
+        jar="C:\Users\dai\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.0\support-annotations-21.0.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1a578b9607b36266c63d43a4fa0ab5664dbe911e">
+        <dex dex="D:\project\nestsaler\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.0-b3b93a2b91e7b9f3b590aebee9c2a793480f94cf.jar" />
+    </item>
+    <item
+        jar="C:\Users\dai\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.2.4\a60a5e993c98c864010053cb901b7eab25306568\gson-2.2.4.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="D:\project\nestsaler\app\build\intermediates\pre-dexed\debug\gson-2.2.4-da81dc12110467eb0d685ab0c6c9baca0c036530.jar" />
+    </item>
+    <item
+        jar="D:\project\nestsaler\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\jars\libs\internal_impl-21.0.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0">
+        <dex dex="D:\project\nestsaler\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.0-657766d0008370b459ce55ae10409506a00c6d27.jar" />
+    </item>
+
+</items>

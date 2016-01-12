@@ -1,0 +1,173 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:2:1-46:12
+	xmlns:android
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:2:11-69
+	package
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:3:5-34
+		INJECTED from D:\project\nestsaler\app\src\main\AndroidManifest.xml
+		INJECTED from D:\project\nestsaler\app\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:5:5-30
+	android:versionCode
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:4:5-28
+		INJECTED from D:\project\nestsaler\app\src\main\AndroidManifest.xml
+		INJECTED from D:\project\nestsaler\app\src\main\AndroidManifest.xml
+uses-sdk
+ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:7:5-73
+MERGED from [nestsaler:library:unspecified] D:\project\nestsaler\app\build\intermediates\exploded-aar\NestSaler\library\unspecified\AndroidManifest.xml:7:5-9:40
+MERGED from [com.android.support:support-v4:21.0.0] D:\project\nestsaler\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\AndroidManifest.xml:15:5-42
+MERGED from [com.android.support:appcompat-v7:21.0.0] D:\project\nestsaler\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.0\AndroidManifest.xml:15:5-42
+MERGED from [com.android.support:support-v4:21.0.0] D:\project\nestsaler\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\AndroidManifest.xml:15:5-42
+	android:targetSdkVersion
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:7:41-70
+		INJECTED from D:\project\nestsaler\app\src\main\AndroidManifest.xml
+		INJECTED from D:\project\nestsaler\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:7:15-40
+		INJECTED from D:\project\nestsaler\app\src\main\AndroidManifest.xml
+		INJECTED from D:\project\nestsaler\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:9:5-81
+	android:name
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:9:22-78
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:10:5-75
+	android:name
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:10:22-72
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:11:5-80
+	android:name
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:11:22-77
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:12:5-79
+	android:name
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:12:22-76
+uses-permission#android.permission.CAMERA
+ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:13:5-65
+	android:name
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:13:22-62
+uses-permission#android.permission.INTERNET
+ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:14:5-67
+	android:name
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:14:22-64
+uses-permission#android.permission.FLASHLIGHT
+ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:15:5-69
+	android:name
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:15:22-66
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:16:5-79
+	android:name
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:16:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:17:5-81
+	android:name
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:17:22-78
+application
+ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:19:5-44:19
+MERGED from [nestsaler:library:unspecified] D:\project\nestsaler\app\build\intermediates\exploded-aar\NestSaler\library\unspecified\AndroidManifest.xml:11:5-20
+MERGED from [com.android.support:support-v4:21.0.0] D:\project\nestsaler\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\AndroidManifest.xml:16:5-19
+MERGED from [com.android.support:appcompat-v7:21.0.0] D:\project\nestsaler\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.0\AndroidManifest.xml:16:5-19
+MERGED from [com.android.support:support-v4:21.0.0] D:\project\nestsaler\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\AndroidManifest.xml:16:5-19
+	android:label
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:22:9-41
+	android:allowBackup
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:20:9-35
+	android:icon
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:21:9-38
+	android:theme
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:24:9-56
+	android:logo
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:23:9-38
+activity#com.creal.nestsaler.WelcomeActivity
+ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:25:9-34:20
+	android:screenOrientation
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:29:13-49
+	android:label
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:27:13-45
+	android:theme
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:28:13-60
+	android:name
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:26:13-44
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:30:13-33:29
+action#android.intent.action.MAIN
+ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:31:17-69
+	android:name
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:31:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:32:17-77
+	android:name
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:32:27-74
+activity#com.creal.nestsaler.LoginActivity
+ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:35:9-135
+	android:screenOrientation
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:35:97-133
+	android:theme
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:35:49-96
+	android:name
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:35:19-48
+activity#com.creal.nestsaler.MipcaActivityCapture
+ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:36:9-142
+	android:screenOrientation
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:36:104-140
+	android:theme
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:36:56-103
+	android:name
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:36:19-55
+activity#com.creal.nestsaler.CenterActivity
+ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:37:9-136
+	android:screenOrientation
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:37:98-134
+	android:theme
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:37:50-97
+	android:name
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:37:19-49
+activity#com.creal.nestsaler.ChangePwdActivity
+ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:38:9-139
+	android:screenOrientation
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:38:101-137
+	android:theme
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:38:53-100
+	android:name
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:38:19-52
+activity#com.creal.nestsaler.OrderHistoryActivity
+ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:39:9-142
+	android:screenOrientation
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:39:104-140
+	android:theme
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:39:56-103
+	android:name
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:39:19-55
+activity#com.creal.nestsaler.ScanInputMoneyActivity
+ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:40:9-144
+	android:screenOrientation
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:40:106-142
+	android:theme
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:40:58-105
+	android:name
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:40:19-57
+activity#com.creal.nestsaler.SettingActivity
+ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:41:9-137
+	android:screenOrientation
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:41:99-135
+	android:theme
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:41:51-98
+	android:name
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:41:19-50
+activity#com.creal.nestsaler.UpdateActivity
+ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:42:9-136
+	android:screenOrientation
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:42:98-134
+	android:theme
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:42:50-97
+	android:name
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:42:19-49
+activity#com.creal.nestsaler.AboutUsActivity
+ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:43:9-137
+	android:screenOrientation
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:43:99-135
+	android:theme
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:43:51-98
+	android:name
+		ADDED from D:\project\nestsaler\app\src\main\AndroidManifest.xml:43:19-50

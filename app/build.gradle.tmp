@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    signingConfigs {
+        config {
+            keyAlias 'android keystore'
+            keyPassword 'android'
+            storeFile file('C:\\Users\\dai\\.android\\debug.keystore')
+            storePassword 'android'
+        }
+    }
+
+    compileSdkVersion 21
+    buildToolsVersion "23.0.1"
+//    useLibrary 'org.apache.http.legacy'
+    defaultConfig {
+        applicationId "com.creal.nest"
+        minSdkVersion 10
+        targetSdkVersion 19
+        signingConfig signingConfigs.config
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            signingConfig signingConfigs.config
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    compile project(':library')
+    compile files('libs/android-async-http-1.4.5.jar')
+    compile files('libs/zxing.jar')
+    compile files('libs/libammsdk.jar')
+    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'com.android.support:support-v4:21.0.0'
+    compile 'com.android.support:appcompat-v7:21.0.0'
+    //    compile 'org.apache.httpcomponents:httpcore:4.4.2'
+}

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="color_no_finger_outer_circle_border" format="color" />
+    <attr name="color_no_finger_outer_circle_fill" format="color" />
+    <attr name="color_no_finger_inner_circle_border" format="color" />
+    <attr name="color_no_finger_inner_circle_fill" format="color" />
+
+    <attr name="color_finger_on_outer_circle_border" format="color" />
+    <attr name="color_finger_on_outer_circle_fill" format="color" />
+    <attr name="color_finger_on_inner_circle_border" format="color" />
+    <attr name="color_finger_on_inner_circle_fill" format="color" />
+
+    <attr name="color_finger_up_outer_circle_border" format="color" />
+    <attr name="color_finger_up_outer_circle_fill" format="color" />
+    <attr name="color_finger_up_inner_circle_border" format="color" />
+    <attr name="color_finger_up_inner_circle_fill" format="color" />
+
+    <attr name="line_color" format="color" />
+    <attr name="line_width" format="integer" />
+
+    <attr name="count" format="integer" />
+    <attr name="tryTimes" format="integer" />
+
+    <declare-styleable name="GestureLockViewGroup">
+        <attr name="color_no_finger_outer_circle_border" />
+        <attr name="color_no_finger_outer_circle_fill" />
+        <attr name="color_no_finger_inner_circle_border" />
+        <attr name="color_no_finger_inner_circle_fill" />
+
+        <attr name="color_finger_on_outer_circle_border" />
+        <attr name="color_finger_on_outer_circle_fill" />
+        <attr name="color_finger_on_inner_circle_border" />
+        <attr name="color_finger_on_inner_circle_fill" />
+
+        <attr name="color_finger_up_outer_circle_border" />
+        <attr name="color_finger_up_outer_circle_fill" />
+        <attr name="color_finger_up_inner_circle_border" />
+        <attr name="color_finger_up_inner_circle_fill" />
+
+        <attr name="line_color" />
+        <attr name="line_width" />
+
+        <attr name="count" />
+        <attr name="tryTimes" />
+    </declare-styleable>
+
+</resources>

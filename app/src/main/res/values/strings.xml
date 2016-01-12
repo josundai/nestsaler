@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--center menu-->
+    <string name="center_scan_code">扫码</string>
+    <string name="center_check_history">查看历史记录</string>
+    <string name="center_change_password">修改密码</string>
+    <string name="center_soft_setting">软件设置</string>
+    <string name="center_soft_update">更新</string>
+    <string name="center_about_us">关于我们</string>
+    <string name="welcome_sign_in">欢迎登录</string>
+    <string name="page_title_exit">退出</string>
+    <string name="confirm_logout">您确定要退出吗？</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+
+    <!-- 联系我们-->
+    <string name="page_title_pingus">联系我们</string>
+    <string name="label_pingus_content">我们的联系方式是XXX,YYY,ZZZ</string>
+    <!--关于我们-->
+    <string name="aboutus_th_name">名称</string>
+    <string name="aboutus_td_name">小燕卡商户端</string>
+    <string name="aboutus_th_version">版本</string>
+    <string name="aboutus_td_version">V101.23</string>
+    <string name="aboutus_th_provider">运营商</string>
+    <string name="aboutus_td_provider">小燕卡公司</string>
+    <string name="aboutus_th_phone">联系方式</string>
+    <string name="aboutus_td_phone">0312-768123</string>
+    <string name="aboutus_th_fax">传真</string>
+    <string name="aboutus_td_fax">0312-8273699</string>
+    <string name="aboutus_th_address">地址</string>
+    <string name="aboutus_td_address">保定市新市区建设南路123号</string>
+
+    <!---扫码-->
+    <string name="title_scan">收款</string>
+    <string name="scan_input_money">收款金额</string>
+    <string name="scan_action_submit">扫码</string>
+    <string name="error_field_be_number">请输入正确的金额</string>
+    <string name="error_field_be_positive">金额必须大于零</string>
+
+    <string name="receivemoney">收款</string>
+
+
+    <string name="select_an_api">选择一个接口</string>
+    <string name="gototest">测试</string>
+    <string name="app_name">燕窝</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="main_tab_title_home">首页</string>
+    <string name="main_tab_title_nearby">附近商家</string>
+    <string name="main_tab_title_balance">最新余额</string>
+    <string name="main_tab_title_settings">设置</string>
+    <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
+    <string name="scan">扫描二维码</string>
+    <string name="search">搜索</string>
+    <string name="search_history">搜索记录</string>
+    <string name="search_history_clean">清除</string>
+
+    <!--登录相关-->
+    <string name="login">商家登录</string>
+    <string name="login_first_time">商家首次登录</string>
+    <string name="login_account_login">账号登录</string>
+    <string name="login_account_id">收银员账号</string>
+    <string name="login_auth_code">请填写授权码</string>
+    <string name="login_password">请填写密码</string>
+    <string name="login_forgot_password">忘记密码?</string>
+    <string name="login_draw_gesture_pwd">绘制解锁密码</string>
+    <string name="login_draw_gesture_pwd_again">请再次绘制解锁密码</string>
+    <!--绑定相关-->
+    <string name="binding_title">安全手机绑定</string>
+    <string name="binding_security_check">安全验证</string>
+    <string name="binding_phone">&#032;&#062;&#032;绑定手机</string>
+    <string name="binding_hint_phone_num">手机号</string>
+    <string name="binding_hint_card_id">卡号</string>
+    <string name="binding_send_verification_code">发送验证码</string>
+    <string name="binding_hint_input_verification_code">请输入验证码</string>
+    <string name="binding_hint_input_password">请输入密码</string>
+    <string name="binding">绑定</string>
+    <string name="binding_cannot_get_verification_code">收不到短信验证码？</string>
+    <!--注册相关-->
+    <string name="register">注册</string>
+    <string name="register_title">立即注册</string>
+    <string name="register_required">必填项*</string>
+    <string name="register_hint_phone_num">手机号</string>
+    <string name="register_get_verification_code">获取验证码</string>
+    <string name="register_hint_input_verification_code">请输入验证码</string>
+    <string name="register_hint_pwd">请输入6-12位数字作为密码</string>
+    <string name="register_optional">选填项</string>
+    <string name="register_hint_user_name">请输入您的姓名</string>
+    <string name="register_hint_user_id">请输入您的身份证号</string>
+    <string name="register_hint_user_addr">请输入详细地址</string>
+    <string name="register_hint_neet_post">是否需要邮寄卡片</string>
+    <string name="register_hint_select_province">选择省</string>
+    <string name="register_hint_select_city">选择市</string>
+    <string name="register_accept_terms">我已阅读并同意燕巢《用户使用协议》</string>
+    <string name="register_terms">&#060;&#060;用户许可协议&#062;&#062;</string>
+    <string name="dlg_msg_registering">正在注册...</string>
+    <string name="hint_msg_input_address">请输入邮寄地址</string>
+    <string name="hint_msg_check_items">您尚未接受《用户使用协议》</string>
+    <!--手势密码-->
+    <string name="guesture_pwd_set">设置手势密码</string>
+    <string name="guesture_pwd_confirm">确认手势密码</string>
+    <string name="guesture_pwd_verify">请输入手势密码</string>
+    <string name="guesture_pwd_new">请输入新密码</string>
+    <string name="guesture_pwd_new_confirm">请确认新密码</string>
+    <string name="guesture_pwd_skip">跳过</string>
+    <string name="guesture_pwd_forgot">忘记密码</string>
+    <string name="guesture_pwd_login">重新登录</string>
+    <string name="guesture_pwd_forgot_dlg">忘记手势密码，需重新登录</string>
+    <string name="guesture_pwd_change">修改密码</string>
+    <string name="guesture_pwd_confirm_failed">与上次绘制不一致，请重新绘制</string>
+    <string name="guesture_pwd_input_old_pwd">请验证原密码</string>
+
+    <!-- 首页 -->
+    <string name="home_actionbar_btn_search">搜索</string>
+    <string name="home_actionbar_menu_pay">付款</string>
+    <string name="home_actionbar_menu_scan">扫二维码</string>
+    <string name="search_hint">搜索商户/功能/地区</string>
+    <string name="home_my_cards">我的券</string>
+    <string name="home_own_cards">拥有的卡券</string>
+    <string name="home_my_consumption">消费</string>
+    <string name="home_go_to_pay">我要付款</string>
+    <string name="home_charge">充值</string>
+    <string name="home_qiangquan">今日抢券</string>
+    <string name="home_activity">活动</string>
+    <string name="home_try_lucky">试手气</string>
+    <string name="home_point_mall">积分商城</string>
+    <string name="home_yuanbao">元宝</string>
+    <string name="home_property">物业</string>
+    <string name="home_my_cs">我的客服</string>
+    <string name="spaces">&#032;&#032;</string>
+    <string name="dlg_msg_loading_qr_code">正在更新二维码...</string>
+
+    <!-- 我的券 -->
+    <string name="my_coupons">我的优惠券</string>
+    <string name="usage_help">使用说明:</string>
+    <string name="view_detail">查看详情</string>
+    <string name="test_description">优惠券可用商铺：北国先天下，保北购物广场，东丽花行，北斗星餐厅，庆丰包子铺...</string>
+    <string name="my_coupons_expire_date" formatted="false">有效期 %s 至\n\t\t\t\t\t\t\t%s</string>
+
+    <!--今日抢券-->
+    <string name="snapup_coupons">今日抢券</string>
+    <string name="snapup_coupons_title">优惠券</string>
+    <string name="snapup_coupons_now">立刻抢券</string>
+    <string name="snapup_coupons_emtpy">抢完</string>
+    <string name="snapup_coupons_unstarted">未开始</string>
+    <string name="snapup_coupons_amount">数量</string>
+    <string name="snapup_coupons_dlg_congratu">恭喜您</string>
+    <string name="snapup_coupons_dlg_btn">知道了</string>
+    <string name="snapup_coupons_total" formatted="false">总数: %d张</string>
+    <string name="snapup_coupons_remaining" formatted="false">剩余: %d张</string>
+    <string name="snapup_coupons_desc" formatted="false">%s优惠券面值%d元，总数%d张</string>
+    <string name="snapup_coupons_desc_bottom" formatted="false">本场优惠券总数%d张</string>
+
+
+    <!--优惠券详情 -->
+    <string name="coupon_detail">优惠券详情</string>
+    <string name="coupon_usage_desc">优惠券使用说明</string>
+    <string name="coupon_provider">使用商铺:</string>
+    <string name="coupon_expired_date">有效期:</string>
+    <string name="coupon_rule">使用规则:</string>
+    <string name="coupon_snap_now">马上抢</string>
+    <string name="test_coupon_name">5元优惠券</string>
+    <string name="test_coupon_desc">满266元使用立减5元</string>
+    <string name="coupon_date_range" formatted="false">%s 至 %s</string>
+    <string name="test_coupon_provider">北国先天下，保北购物广场，东丽花行，北斗星餐厅，庆丰包子铺...</string>
+    <string name="test_coupon_rule">满266元以上商品或消费方可使用5元优惠券</string>
+
+    <!--试手气-->
+    <string name="try_lucky">试手气</string>
+    <string name="try_lucky_usage_help">使用说明</string>
+
+    <!--最新活动-->
+    <string name="latest_activities">最新活动</string>
+    <string name="latest_activities_desc">活动说明</string>
+    <string name="latest_activities_date">活动时间</string>
+    <string name="latest_activities_view_more">查看图文介绍</string>
+
+    <!--积分商城-->
+    <string name="points_mall">积分商城</string>
+    <string name="points_mall_help">什么是积分？</string>
+    <string name="points_mall_my_points">我的积分：</string>
+    <string name="my_shopping_history">我的购买历史</string>
+    <string name="commodity_exchange">商品兑换</string>
+    <string name="coupons_exchange">优惠券兑换</string>
+    <string name="commodity_exchange_section">商品兑换区</string>
+    <string name="coupons_exchange_section">优惠券兑换区</string>
+    <!--兑换商品-->
+    <string name="commodity_detail">商品详情</string>
+    <string name="exchange">兑换</string>
+    <string name="commodity_characteristic">商品特点</string>
+    <string name="commodity_desc">商品说明</string>
+    <string name="exchange_desc">兑换说明</string>
+    <string name="photo_desc_detail">图文详情</string>
+    <string name="exchange_commit_title">兑换信息</string>
+    <string name="exchange_hint_input_recipient_name">请输入收件人姓名</string>
+    <string name="exchange_hint_phone">请输入手机号/座机号</string>
+    <string name="exchange_hint_address">请输入详细地址以方便投递</string>
+    <string name="change_verification_code">看不清，换一张</string>
+    <string name="exchange_submit">提交</string>
+    <string name="exchange_succ">兑换成功</string>
+    <string name="exchange_recharge_card_hint" formatted="false">您兑换%s元宝成余额%d元，兑换成功后不可兑回，您确定要兑换吗？</string>
+    <string name="exchange_commodity_succ_desc">您兑换的双头狮男士内裤中腰已经兑换成功，将在近几日通过快递方式邮寄给您。</string>
+    <string name="exchange_coupons_succ_desc">您兑换的优惠券已经发送至您的账户，点击查看交换记录按钮可查看兑换结果</string>
+    <string name="exchange_ingots_succ_desc" formatted="false">您兑换的%s元宝已经兑换成功。</string>
+    <string name="exchange_view_history">查看兑换记录</string>
+    <!--兑换优惠券-->
+    <string name="coupons_detail">商品详情</string>
+    <string name="coupons_usage_desc">优惠券使用说明</string>
+    <string name="available_shop">使用商铺</string>
+    <string name="expired_date">有效期</string>
+    <string name="coupons_rule">使用规则</string>
+    <string name="exchange_confirm">确认兑换</string>
+    <string name="back_to_points_mall">返回积分商城</string>
+
+    <!--元宝商城-->
+    <string name="ingots_mall_title">元宝商城</string>
+    <string name="ingots_mall_help">什么是元宝？</string>
+    <string name="ingots_mall_my_points">我的元宝：</string>
+    <string name="back_to_ingots_mall">返回元宝商城</string>
+    <string name="ingots_num" formatted="false">%s元宝</string>
+
+
+    <!--物业-->
+    <string name="property_management">物业管理</string>
+    <string name="property_management_disabled">暂未开通此功能</string>
+    <string name="property_user_sex" formatte="false">性别: %s</string>
+    <string name="property_user_base_info">业主基本信息</string>
+    <string name="recharge_fee">缴费</string>
+    <string name="recharge_property_fee">缴纳物业费</string>
+    <string name="property_bills">物业待交项目</string>
+    <string name="report_maintenance">报修</string>
+    <string name="report_maintenance_service">报修服务</string>
+    <string name="query_remaining_balance">查询账户余额</string>
+    <string name="recharge_property_hint">缴纳物业费请保证余额大于缴纳的资金</string>
+    <string name="pay_history">缴费记录</string>
+    <string name="repair_history">报修记录</string>
+    <string name="property_pay_desc">缴费说明</string>
+    <string name="property_pay_desc_text">点击确定将从您的小燕卡账户中扣除并进行缴费，请保持余额大于缴费金额。</string>
+    <string name="property_pay">缴费</string>
+    <string name="property_pay_succ">缴费成功</string>
+    <string name="property_pay_succ_msg">您缴纳的300元物业费已经缴纳成功</string>
+    <string name="property_back_to_property">返回物业页面</string>
+    <string name="property_view_pay_history">查看缴费记录</string>
+    <string name="property_repair">报修</string>
+    <string name="property_repair_common">公共部分</string>
+    <string name="property_repair_personal">个人部分</string>
+    <string name="property_repair_name">请输入标题 如：水管维修</string>
+    <string name="property_repair_uname">请输入联系人姓名</string>
+    <string name="property_repair_phone">请输入联系电话</string>
+    <string name="property_repair_summary">请输入需要维修的简要介绍</string>
+    <string name="property_repair_vecode">请输入验证码</string>
+    <string name="property_repair_report_list">报修列表</string>
+    <string name="property_repair_report_time">报修时间:</string>
+    <string name="property_repair_report_time_detail" formatted="false">报修时间: %s</string>
+    <string name="property_repair_finish_time">完成时间:</string>
+    <string name="property_repair_detail">报修详情</string>
+    <string name="property_repair_deal_opinion" formatted="false">处理意见: %s</string>
+    <string name="property_repair_deal_time" formatted="false">处理时间: %s</string>
+
+    <!-- 消费 -->
+    <string name="pay">消费</string>
+    <string name="pay_description">消费说明</string>
+    <string name="pay_hint">如果店铺有优惠折扣，付款时会自动抵扣</string>
+    <string name="pay_auto_refresh">每分钟自动更新</string>
+    <string name="pay_cancel">取消</string>
+
+
+    <!--充值-->
+    <string name="hint_card_id">卡号</string>
+    <string name="hint_amount">金额(输入100的整数倍)</string>
+    <string name="recharge_amount">充值金额</string>
+    <string name="amount_100">100元</string>
+    <string name="amount_200">200元</string>
+    <string name="amount_300">300元</string>
+    <string name="amount_500">500元</string>
+    <string name="amount_1000">1000元</string>
+    <string name="amount_2000">2000元</string>
+    <string name="hint_recharge_more">多充可获得元宝</string>
+    <string name="recharge_mode">支付方式</string>
+    <string name="alipay">支付宝</string>
+    <string name="hint_alipay">推荐有支付宝的用户使用</string>
+    <string name="weichat">微信</string>
+    <string name="hint_weichat">推荐安装微信5.0及以上版报本的用户使用</string>
+    <string name="pay_result_tips">提示</string>
+    <string name="wx_pay_result_callback_msg" formatted="false">微信支付结果：%s</string>
+
+    <!--Messages-->
+    <string name="load">加载中...</string>
+    <string name="load_failed">加载失败,请稍候重试!</string>
+    <string name="no_more_to_load">全部加载完毕</string>
+
+    <!--附近商户-->
+    <string name="test_shop_title">比尔斯烤肉自助</string>
+    <string name="shop_discount">促销</string>
+    <!--商户详情-->
+    <string name="shop_detail_title">商户详情</string>
+    <string name="shop_desc">商户介绍</string>
+    <string name="shop_view_more">查看图文介绍</string>
+
+
+    <!--Balance-->
+    <string name="balance">账户余额</string>
+    <string name="amount">账户总金额(元)</string>
+    <string name="recharge_history">充值记录</string>
+    <string name="recharge">充值</string>
+    <string name="my_points">我的积分</string>
+    <string name="my_ingots">我的元宝</string>
+    <string name="balance_description">使用积分和元宝可兑换优惠券和商品</string>
+    <string name="balance_recharge_amount">充值金额:</string>
+    <string name="balance_recharge_time">充值时间:</string>
+    <string name="points_accumulation_history">积分记录明细</string>
+    <string name="ingots_accumulation_history">元宝记录明细</string>
+    <!--无宝兑换记录-->
+    <string name="ingot_exchange_ingots" formatted="false">兑换使用了%s元宝</string>
+
+    <!-- Settings -->
+    <string name="settings">设置</string>
+    <string name="general_info">基本信息</string>
+    <string name="change_pwd">修改密码</string>
+    <string name="shop_history">购买历史</string>
+    <string name="points_exchange_history">积分兑换记录</string>
+    <string name="ingots_exchange_history">元宝兑换记录</string>
+    <string name="app_settings">软件设置</string>
+    <string name="check_updates">更新</string>
+    <string name="help">帮助</string>
+    <string name="about">关于我们</string>
+    <string name="exchange_history">兑换记录</string>
+    <!--消费记录-->
+    <string name="shop_time" formatted="false">消费时间: %s</string>
+
+
+    <!-- 个人信息 -->
+    <string name="user_info">个人信息</string>
+    <string name="user_name">姓名</string>
+    <string name="user_sex">性别</string>
+    <string name="user_card">卡号</string>
+    <string name="user_phone">绑定手机</string>
+    <string name="user_exit">退出登录</string>
+    <string name="user_rebind">重新绑定</string>
+    <!-- 修必密码 -->
+    <string name="old_pwd">输入原密码</string>
+    <string name="new_pwd">请输入6-12位数字作为新密码</string>
+    <string name="new_pwd_again">确认新密码</string>
+    <string name="change_pwd_succ">成功修改密码</string>
+    <string name="save_changes">保存</string>
+    <!-- 帮助 -->
+    <string name="help_center">帮助中心</string>
+    <string name="help_account">账户类</string>
+    <string name="help_avoid_treat">如何预防诈骗</string>
+    <string name="help_change_phone">如何修改绑定手机号</string>
+    <string name="help_money">款项类</string>
+    <string name="help_alipay">支付宝退款退到哪儿</string>
+    <string name="help_cancel">退货/换货</string>
+    <string name="help_return_commodity">我要退货/换货</string>
+    <string name="help_return_time">申请退货/换货后，多久办理</string>
+
+
+    <!--积分兑换记录-->
+
+    <!--消息类-->
+    <string name="send_succ">短信已发送成功</string>
+    <string name="loading">加载中...</string>
+    <string name="signing">正在登录中...</string>
+    <string name="load_done">数据已全部加载完毕。</string>
+    <string name="load_error">加载失几，请稍候重试</string>
+    <string name="network_error">网络出错，请稍候重试</string>
+    <string name="unknown_error">出错啦，请稍候重试</string>
+
+</resources>

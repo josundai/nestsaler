@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.creal.nest"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:logo="@drawable/logo"
+        android:theme="@android:style/Theme.NoTitleBar" >
+        <activity
+            android:name="com.creal.nestsaler.WelcomeActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Custom.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.creal.nestsaler.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Custom.NoActionBar" />
+        <activity
+            android:name="com.creal.nestsaler.MipcaActivityCapture"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Custom.NoActionBar" />
+        <activity
+            android:name="com.creal.nestsaler.CenterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Custom.NoActionBar" />
+        <activity
+            android:name="com.creal.nestsaler.ChangePwdActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Custom.NoActionBar" />
+        <activity
+            android:name="com.creal.nestsaler.OrderHistoryActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Custom.NoActionBar" />
+        <activity
+            android:name="com.creal.nestsaler.ScanInputMoneyActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Custom.NoActionBar" />
+        <activity
+            android:name="com.creal.nestsaler.SettingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Custom.NoActionBar" />
+        <activity
+            android:name="com.creal.nestsaler.UpdateActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Custom.NoActionBar" />
+        <activity
+            android:name="com.creal.nestsaler.AboutUsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Custom.NoActionBar" />
+    </application>
+
+</manifest>
