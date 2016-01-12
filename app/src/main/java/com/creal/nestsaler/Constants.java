@@ -22,8 +22,8 @@ public class Constants {
     public static final String APP_USER_AUTHORIZED    = "app_user_authorized";
     public static final String APP_USER_PHONE         = "app_user_phone";
     public static final String APP_USER_PWD           = "app_user_pwd";
-    public static final String APP_USER_CARD_ID       = "app_user_card_id";
-    public static final String APP_USER_CARD_NUM      = "app_user_card_num";
+    public static final String APP_USER_APP_NUMBER = "app_user_card_id";
+    public static final String APP_USER_APP_NUM = "app_user_app_num";
 
     public static final String APP_ACCOUNT_ACTIVE = "account_active";
 

@@ -18,11 +18,10 @@ import com.creal.nestsaler.util.UIUtil;
 import com.creal.nestsaler.views.HeaderView;
 
 public class LoginActivity extends Activity {
-    private EditText mCardId;
+    private EditText mAppNumber;
     private EditText mPassword;
-    private EditText mAuthCode;
-    public static final String INTENT_EXTRA_ACTION_TYPE = "action_type";
-    public static final String ACTION_REST_GESTURE_PWD = "reset_gesture_password";
+    private EditText mActiveCode;
+    private boolean isRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,51 +35,63 @@ public class LoginActivity extends Activity {
         headerView.hideLeftBtn();
         headerView.setLeftBtnListener(null);
 
-        mCardId = (EditText)findViewById(R.id.id_txt_card_id);
+        mAppNumber = (EditText)findViewById(R.id.id_txt_appNumber_id);
         mPassword = (EditText)findViewById(R.id.id_txt_password);
-        mAuthCode = (EditText)findViewById(R.id.id_txt_auth_code);
+        mActiveCode = (EditText)findViewById(R.id.id_txt_auth_code);
 
-        mCardId.setText(PreferenceUtil.getString(this, Constants.APP_USER_CARD_NUM, ""));
+        mAppNumber.setText(PreferenceUtil.getString(this, Constants.APP_USER_APP_NUM, ""));
         mPassword.setText(PreferenceUtil.getString(this, Constants.APP_USER_PWD, ""));
-        init();
+        init(headerView);
     }
 
-    private void init(){
+    private void init(HeaderView headerView ){
         String active = PreferenceUtil.getString(this, Constants.APP_ACCOUNT_ACTIVE, null);
-        if(Boolean.FALSE.toString().equalsIgnoreCase(active)){
+        if( Boolean.FALSE.toString().equalsIgnoreCase(active)){
             findViewById(R.id.id_first_login_panel).setVisibility(View.GONE);
+        }else{
+            //已经注册
+            headerView.setTitle(R.string.login_account_login);
+            isRegister = true;
         }
     }
 
     public void onLoginClick(View view){
-//        CharSequence cardId = mCardId.getText();
-//        if(TextUtils.isEmpty(cardId)){
-//            Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
-//            mCardId.startAnimation(shake);
-//            return;
-//        }
-//        CharSequence password = mPassword.getText();
-//        if(TextUtils.isEmpty(password)){
-//            Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
-//            mPassword.startAnimation(shake);
-//            return;
-//        }
+        CharSequence appNumber = mAppNumber.getText();
+        if(TextUtils.isEmpty(appNumber)){
+            Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
+            mAppNumber.startAnimation(shake);
+            return;
+        }
+        CharSequence password = mPassword.getText();
+        if(TextUtils.isEmpty(password)){
+            Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
+            mPassword.startAnimation(shake);
+            return;
+        }
 
-//        PreferenceUtil.saveString(this, Constants.APP_USER_CARD_NUM, cardId.toString());
-//        PreferenceUtil.saveString(this, Constants.APP_USER_PWD, password.toString());
-//        final LoginAction loginAction = new LoginAction(this, cardId.toString(), password.toString());
-//        final Dialog progressDialog = UIUtil.showLoadingDialog(this, getString(R.string.signing), false);
-//        loginAction.execute(new AbstractAction.UICallBack() {
-//            public void onSuccess(Object result) {
-//                progressDialog.dismiss();
-//                finish();
-//            }
-//
-//            public void onFailure(AbstractAction.ActionError error) {
-//                progressDialog.dismiss();
-//                Toast.makeText(LoginActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        CharSequence activationCode = mActiveCode.getText();
+        if(TextUtils.isEmpty(activationCode)){
+            Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
+            mActiveCode.startAnimation(shake);
+            return;
+        }
+
+
+        PreferenceUtil.saveString(this, Constants.APP_USER_APP_NUM, appNumber.toString());
+        PreferenceUtil.saveString(this, Constants.APP_USER_PWD, password.toString());
+        final LoginAction loginAction = new LoginAction(this, isRegister, appNumber.toString(), password.toString(), activationCode.toString() );
+        final Dialog progressDialog = UIUtil.showLoadingDialog(this, getString(R.string.signing), false);
+        loginAction.execute(new AbstractAction.UICallBack() {
+            public void onSuccess(Object result) {
+                progressDialog.dismiss();
+                finish();
+            }
+
+            public void onFailure(AbstractAction.ActionError error) {
+                progressDialog.dismiss();
+                Toast.makeText(LoginActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
         startNext();
     }
 

@@ -62,7 +62,7 @@ public class ChangePwdActivity extends Activity {
 
         final Dialog dialog = UIUtil.showLoadingDialog(this, getString(R.string.change_pwd), false);
         Map parameters = new HashMap();
-        String cardId = PreferenceUtil.getString(this, Constants.APP_USER_CARD_ID, null);
+        String cardId = PreferenceUtil.getString(this, Constants.APP_USER_APP_NUMBER, null);
         parameters.put(Constants.KEY_CARD_ID, cardId);
         parameters.put("old_pwd", oldPwd.toString());
         parameters.put("new_pwd", newPwd.toString());

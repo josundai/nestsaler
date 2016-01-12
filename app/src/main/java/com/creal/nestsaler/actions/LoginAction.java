@@ -10,30 +10,42 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class LoginAction extends AbstractAction {
-    private String mCardNum;
+    private String appNumber;
     private String mPassword;
+    private String mActivationCode;
+    private boolean isRegister;
 
-    public LoginAction(Context context, String cardNum, String pwd) {
+    public LoginAction(Context context, boolean isRegister, String appNumber, String pwd, String mActivationCode) {
         super(context);
-        this.mCardNum = cardNum;
+        this.appNumber = appNumber;
         this.mPassword = pwd;
-        this.mServiceId = "LOGIN";
-        mURL = Constants.URL_LOGIN;
+        this.mActivationCode = mActivationCode;
+        this.mServiceId = isRegister? "ACTIVATION" :"LOGIN";
+        this.isRegister = isRegister;
+        mURL = isRegister? Constants.URL_ACTIVE_ACCOUNT:Constants.URL_LOGIN;
     }
 
     protected JSONObject getRequestBody(String timeStr) throws JSONException{
         JSONObject parameters = new JSONObject();
-        parameters.put("card_num", mCardNum);
-        String key = PreferenceUtil.getString(mAppContext, Constants.APP_BINDING_KEY, Constants.APP_DEFAULT_KEY);
-        parameters.put("password", Utils.md5(Utils.md5(mPassword) + key + timeStr));
+
+        parameters.put("app_number", appNumber);
+        if( isRegister ){
+            //TODO: double confirm the double md5.
+            parameters.put("pay_password", Utils.md5(Utils.md5(mPassword)));
+        }else{
+            String key = PreferenceUtil.getString(mAppContext, Constants.APP_BINDING_KEY, Constants.APP_DEFAULT_KEY);
+            parameters.put("password", Utils.md5(Utils.md5(mPassword) + timeStr + key));
+        }
         return parameters;
     }
 
     @Override
     protected Object createRespObject(JSONObject response) throws JSONException {
-        PreferenceUtil.saveString(mAppContext, Constants.APP_USER_CARD_ID, response.getString("card_id"));
-        PreferenceUtil.saveString(mAppContext, Constants.APP_USER_CARD_NUM, response.getString("card_num"));
-        PreferenceUtil.saveString(mAppContext, Constants.APP_USER_AUTHORIZED, Boolean.TRUE.toString());
+        PreferenceUtil.saveString(mAppContext, Constants.APP_BINDING_KEY, response.getString(Constants.KEY_KEY));
         return null;
+    }
+
+    protected String getEncryptKey(){
+        return isRegister?  mActivationCode : super.getEncryptKey();
     }
 }

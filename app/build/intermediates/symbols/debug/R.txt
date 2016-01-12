@@ -741,8 +741,8 @@ int id id_input_money 0x7f0d006f
 int id id_loading 0x7f0d0087
 int id id_scan_submit_button 0x7f0d0070
 int id id_text_help 0x7f0d0081
+int id id_txt_appNumber_id 0x7f0d006b
 int id id_txt_auth_code 0x7f0d006d
-int id id_txt_card_id 0x7f0d006b
 int id id_txt_new_pwd 0x7f0d0069
 int id id_txt_new_pwd_again 0x7f0d006a
 int id id_txt_old_pwd 0x7f0d0068

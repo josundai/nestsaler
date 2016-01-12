@@ -11,9 +11,12 @@ import com.creal.nestsaler.Constants;
 import com.creal.nestsaler.R;
 import com.creal.nestsaler.util.PreferenceUtil;
 import com.creal.nestsaler.util.Utils;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.JsonPrimitive;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -32,13 +35,13 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.concurrent.Executor;
 
 public abstract class AbstractAction<Result> extends ParallelTask<AbstractAction.ActionResult<Result>> {
     private static final String tag = "TT-AbstractRequest";
+    public static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
     //For Test only START
-    private Object mOriginalRequest;
-    public Object getOriginalRequest(){return mOriginalRequest;}
     private Object mOriginalResponse;
     public Object getOriginalResponse(){return mOriginalResponse;}
     private Throwable mOriginalError;
@@ -113,85 +116,84 @@ public abstract class AbstractAction<Result> extends ParallelTask<AbstractAction
         void onSuccess(T result);
         void onFailure(ActionError error);
     }
-    
+
     public static abstract class BackgroundCallBack<T>{
         public abstract void onSuccess(T result);
         public void onFailure(ActionError error){}
     }
-    
+
     public interface IBackgroundProcessor<T> {
-    	ActionResult<T> doInBackground();
+        ActionResult<T> doInBackground();
     }
 
     public class NetworkBackgroundProcessor implements IBackgroundProcessor<Result>{
         private ActionResult<Result> mResult;
-		public ActionResult<Result> doInBackground() {
-	        String response = null;
-	        try{
-	            JSONObject jsonReq = createJSONRequest();
-                mOriginalRequest = jsonReq;
-	            Log.d(tag, "Sending JSON request to " + getUrl() + "\n" + jsonReq.toString(4));
+        public ActionResult<Result> doInBackground() {
+            String response = null;
+            try{
+                JsonObject jsonReq = createJSONRequest();
+                Log.d(tag, "Sending JSON request to " + getUrl() + "\n" + gson.toJson(jsonReq));
 //                if("URL_REGISTER".equals(mServiceId)){
 //                    return mResult;
 //                }
-	            SyncHttpClient httpClient = new SyncHttpClient();
+                SyncHttpClient httpClient = new SyncHttpClient();
                 final HttpEntity entity = new StringEntity(jsonReq.toString(), AsyncHttpResponseHandler.DEFAULT_CHARSET);
                 httpClient.post(mAppContext, getUrl(), entity, RequestParams.APPLICATION_JSON, new JsonHttpResponseHandler(){
-	    			@Override
-	    			public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-	    				try {
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                        try {
                             Header[] header = getRequestHeaders();
                             if(header != null)
-                            for(int i=0; i<header.length; i++){
-                                Log.d(tag, header[i].getName() + ": " +header[i].getValue());
-                            }
+                                for(int i=0; i<header.length; i++){
+                                    Log.d(tag, header[i].getName() + ": " +header[i].getValue());
+                                }
                             mOriginalResponse = response;
-	    	                Log.d(tag, "Received JSON response : " + response.toString(4));
-		    				super.onSuccess(statusCode, headers, response);
+                            Log.d(tag, "Received JSON response : " + response.toString(4));
+                            super.onSuccess(statusCode, headers, response);
                             mResult = parseJSONResponse (response);
-						} catch (Exception e) {
-							Log.e(tag, "Failed to process response message.", e);
-			            	mResult = new ActionResult<>(new ActionError(ErrorCode.INVALID_RESPONSE, e.getMessage()));
-						} 
-	    			}
-	    			public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                        } catch (Exception e) {
+                            Log.e(tag, "Failed to process response message.", e);
+                            mResult = new ActionResult<>(new ActionError(ErrorCode.INVALID_RESPONSE, e.getMessage()));
+                        }
+                    }
+                    public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                         mOriginalResponse = response;
-	    				super.onSuccess(statusCode, headers, response);
-	    			}
-	    			public void onSuccess(int statusCode, Header[] headers, String response) {
+                        super.onSuccess(statusCode, headers, response);
+                    }
+                    public void onSuccess(int statusCode, Header[] headers, String response) {
                         mOriginalResponse = response;
-	    				super.onSuccess(statusCode, headers, response);
-	    			}
-	    			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse){
+                        super.onSuccess(statusCode, headers, response);
+                    }
+                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse){
                         mOriginalResponse = errorResponse;
                         mOriginalError = throwable;
-	    				onFailure(statusCode, headers, errorResponse == null ? "" : errorResponse.toString(), throwable);
-	    			}
-	    			public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse){
+                        onFailure(statusCode, headers, errorResponse == null ? "" : errorResponse.toString(), throwable);
+                    }
+                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse){
                         mOriginalResponse = errorResponse;
                         mOriginalError = throwable;
-	    				onFailure(statusCode, headers, errorResponse == null? "" : errorResponse.toString(), throwable);
-	    			}
-	    			@Override
-	    			public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                        onFailure(statusCode, headers, errorResponse == null? "" : errorResponse.toString(), throwable);
+                    }
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                         mOriginalResponse = responseString;
                         mOriginalError = throwable;
-	    				super.onFailure(statusCode, headers, responseString, throwable);
-    	                Log.e(tag, "Received Error response : StatusCode: " + statusCode + ", Received response : " + responseString, throwable);
-	    				try {
-	    					if(statusCode >= HttpStatus.SC_BAD_REQUEST &&
-		    						statusCode < HttpStatus.SC_INTERNAL_SERVER_ERROR){
-		    					mResult = new ActionResult<>(new ActionError(ErrorCode.INVALID_REQUEST, responseString));
-				            } else if(statusCode >= HttpStatus.SC_INTERNAL_SERVER_ERROR){
-				            	mResult = new ActionResult<>(new ActionError(ErrorCode.SERVER_ERROR, responseString));
-				            } else{
-				            	mResult = new ActionResult<>(new ActionError(ErrorCode.NETWORK_ERROR, mAppContext.getString(R.string.network_error)));
-				            }
-						} catch (Exception e) {
-							Log.e(tag, "Failed to process response message.", e);
-			            	mResult = new ActionResult<>(new ActionError(ErrorCode.INVALID_RESPONSE, mAppContext.getString(R.string.unknown_error)));
-						} 
-	    			}
+                        super.onFailure(statusCode, headers, responseString, throwable);
+                        Log.e(tag, "Received Error response : StatusCode: " + statusCode + ", Received response : " + responseString, throwable);
+                        try {
+                            if(statusCode >= HttpStatus.SC_BAD_REQUEST &&
+                                    statusCode < HttpStatus.SC_INTERNAL_SERVER_ERROR){
+                                mResult = new ActionResult<>(new ActionError(ErrorCode.INVALID_REQUEST, responseString));
+                            } else if(statusCode >= HttpStatus.SC_INTERNAL_SERVER_ERROR){
+                                mResult = new ActionResult<>(new ActionError(ErrorCode.SERVER_ERROR, responseString));
+                            } else{
+                                mResult = new ActionResult<>(new ActionError(ErrorCode.NETWORK_ERROR, mAppContext.getString(R.string.network_error)));
+                            }
+                        } catch (Exception e) {
+                            Log.e(tag, "Failed to process response message.", e);
+                            mResult = new ActionResult<>(new ActionError(ErrorCode.INVALID_RESPONSE, mAppContext.getString(R.string.unknown_error)));
+                        }
+                    }
 
                     protected Object parseResponse(byte[] responseBody) throws JSONException {
                         if (null == responseBody)
@@ -215,39 +217,39 @@ public abstract class AbstractAction<Result> extends ParallelTask<AbstractAction
                         }
                         return result;
                     }
-	    		});
-	        } catch(Exception e) {
-	            Log.e(tag, "Failed to process action : " + mServiceId + "\n" + response, e);
+                });
+            } catch(Exception e) {
+                Log.e(tag, "Failed to process action : " + mServiceId + "\n" + response, e);
                 mOriginalError = e;
-	            mResult = new ActionResult<Result>(new ActionError(ErrorCode.NETWORK_ERROR, mAppContext.getString(R.string.network_error)));
-	        }
-	        if(mBackgroundCallBack != null){
-	            if(mResult.hasError()){
-	            	mBackgroundCallBack.onFailure(mResult.getError());
-	            }else{
-	            	mBackgroundCallBack.onSuccess(mResult.getObject());
-	            }
-	        }
-	        return mResult;
-		}
+                mResult = new ActionResult<Result>(new ActionError(ErrorCode.NETWORK_ERROR, mAppContext.getString(R.string.network_error)));
+            }
+            if(mBackgroundCallBack != null){
+                if(mResult.hasError()){
+                    mBackgroundCallBack.onFailure(mResult.getError());
+                }else{
+                    mBackgroundCallBack.onSuccess(mResult.getObject());
+                }
+            }
+            return mResult;
+        }
     }
 
     public void setBackgroundProcessor(IBackgroundProcessor<Result> processor){
-    	mBackgroundProcessor = processor;
+        mBackgroundProcessor = processor;
     }
-    
+
     public AbstractAction(Context context){
-    	this(context, null);
+        this(context, null);
     }
-    
+
     public AbstractAction(Context context, IBackgroundProcessor<Result> processor){
         mAppContext = context;
         if(processor != null)
-        	mBackgroundProcessor = processor;
+            mBackgroundProcessor = processor;
     }
 
     protected ActionResult<Result> doInBackground(Void...  params){
-    	return mBackgroundProcessor.doInBackground();
+        return mBackgroundProcessor.doInBackground();
     }
 
     protected final void onPostExecute(ActionResult<Result> result) {
@@ -257,48 +259,48 @@ public abstract class AbstractAction<Result> extends ParallelTask<AbstractAction
         }
         if(mUICallback != null){
             if(result.hasError()){
-            	mUICallback.onFailure(result.getError());
+                mUICallback.onFailure(result.getError());
             }else{
-            	mUICallback.onSuccess(result.getObject());
+                mUICallback.onSuccess(result.getObject());
             }
         }
     }
 
     public void execute(){
-    	execute(null, null);
+        execute(null, null);
     }
-    
+
     public void execute(BackgroundCallBack<Result> backgroundCallBack){
-    	execute(backgroundCallBack, null);
+        execute(backgroundCallBack, null);
     }
-    
+
     public void execute(UICallBack<Result> uiCallback){
-    	execute(null, uiCallback);
+        execute(null, uiCallback);
     }
 
     @SuppressLint("NewApi")
-	public void execute(BackgroundCallBack<Result> backgroundCallBack, UICallBack<Result> uiCallback){
-    	executeOnExecutor(backgroundCallBack, uiCallback, null);
+    public void execute(BackgroundCallBack<Result> backgroundCallBack, UICallBack<Result> uiCallback){
+        executeOnExecutor(backgroundCallBack, uiCallback, null);
     }
-    
+
     public void executeOnExecutor(BackgroundCallBack<Result> backgroundCallBack, Executor executor){
-    	executeOnExecutor(backgroundCallBack, null, executor);
+        executeOnExecutor(backgroundCallBack, null, executor);
     }
-    
+
     public void executeOnExecutor(UICallBack<Result> uiCallback, Executor executor){
-    	executeOnExecutor(null, uiCallback, executor);
+        executeOnExecutor(null, uiCallback, executor);
     }
 
     @SuppressLint("NewApi")
-	public void executeOnExecutor(BackgroundCallBack<Result> backgroundCallBack, UICallBack<Result> uiCallback, Executor executor){
+    public void executeOnExecutor(BackgroundCallBack<Result> backgroundCallBack, UICallBack<Result> uiCallback, Executor executor){
         mUICallback = uiCallback;
         mBackgroundCallBack = backgroundCallBack;
         if(executor != null){
-        	super.executeOnExecutor(executor);
+            super.executeOnExecutor(executor);
         }else if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.GINGERBREAD_MR1) {
             super.execute();
         } else {
-        	super.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            super.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         }
     }
 
@@ -369,18 +371,16 @@ public abstract class AbstractAction<Result> extends ParallelTask<AbstractAction
         cancel(true);
     }
 
-    private JSONObject createJSONRequest() throws JSONException, UnsupportedEncodingException {
-        JSONObject request = new JSONObject();
+    private JsonObject createJSONRequest() throws JSONException, UnsupportedEncodingException {
+        JsonObject request = new JsonObject();
         String timeStr = Utils.formatDate("yyyy-MM-dd HH:mm:ss", new Date());
-        JSONObject requestBody = removeInvalidParas(getRequestBody(timeStr));
-        request.put("timestr", timeStr);
-        String hash = requestBody.toString() + timeStr + getEncryptKey();
-        String signature = Utils.md5(hash);
-        request.put("signature", signature);
-        request.putOpt("body", encodeBody(requestBody));
-
-        JSONObject wrapper = new JSONObject();
-        wrapper.put("request", request);
+        JSONObject actionBody = removeInvalidParas(getRequestBody(timeStr));
+        JsonObject requestBody = new JsonParser().parse(actionBody.toString()).getAsJsonObject();
+        request.add("timestr", new JsonPrimitive(timeStr));
+        request.add("signature", new JsonPrimitive(Utils.md5(requestBody.toString() + timeStr + getEncryptKey())));
+        request.add("body", encodeBody(requestBody));
+        JsonObject wrapper = new JsonObject();
+        wrapper.add("request", request);
         return wrapper;
     }
 
@@ -399,14 +399,15 @@ public abstract class AbstractAction<Result> extends ParallelTask<AbstractAction
         return newPara;
     }
 
-    private JSONObject encodeBody(JSONObject requestBody) throws JSONException, UnsupportedEncodingException {
-        JSONObject encodedRequestBody = new JSONObject();
-        Iterator<String> keys = requestBody.keys();
+    private JsonObject encodeBody(JsonObject requestBody) throws JSONException, UnsupportedEncodingException {
+//        Log.d(tag, "before encoding: " + gson.toJson(requestBody));
+        JsonObject encodedRequestBody = new JsonObject();
+        Iterator<Map.Entry<String, JsonElement>> keys = requestBody.entrySet().iterator();
         while(keys.hasNext()){
-            String key = keys.next();
-            String value = requestBody.getString(key);
-            encodedRequestBody.put(key, URLEncoder.encode(value, "utf-8"));
+            Map.Entry<String, JsonElement> entry = keys.next();
+            encodedRequestBody.add(entry.getKey(), new JsonPrimitive(URLEncoder.encode(entry.getValue().getAsString(), "utf-8")));
         }
+//        Log.d(tag, "after encoding: " + gson.toJson(encodedRequestBody));
         return encodedRequestBody;
     }
 

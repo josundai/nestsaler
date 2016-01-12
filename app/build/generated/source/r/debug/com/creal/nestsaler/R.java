@@ -1930,8 +1930,8 @@ containing a value of this type.
         public static final int id_loading=0x7f0d0087;
         public static final int id_scan_submit_button=0x7f0d0070;
         public static final int id_text_help=0x7f0d0081;
+        public static final int id_txt_appNumber_id=0x7f0d006b;
         public static final int id_txt_auth_code=0x7f0d006d;
-        public static final int id_txt_card_id=0x7f0d006b;
         public static final int id_txt_new_pwd=0x7f0d0069;
         public static final int id_txt_new_pwd_again=0x7f0d006a;
         public static final int id_txt_old_pwd=0x7f0d0068;
