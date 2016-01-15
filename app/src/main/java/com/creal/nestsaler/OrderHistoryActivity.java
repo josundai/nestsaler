@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.creal.nestsaler.actions.CommonPaginationAction;
 import com.creal.nestsaler.actions.PaginationAction;
 import com.creal.nestsaler.model.OrderRecord;
+import com.creal.nestsaler.util.PreferenceUtil;
 import com.creal.nestsaler.views.ptr.PTRListFragment;
 
 import java.util.HashMap;
@@ -30,7 +31,7 @@ public class OrderHistoryActivity extends FragmentActivity {
         @Override
         public PaginationAction<OrderRecord> getPaginationAction() {
             Map<String, String> parameters = new HashMap<>();
-            parameters.put("app_number", "");
+            parameters.put("app_number", PreferenceUtil.getString(getActivity(), Constants.APP_USER_APP_NUM, null));
             return new CommonPaginationAction(getActivity(), 1, Constants.PAGE_SIZE, Constants.URL_GET_ORDER_RECORD, parameters, OrderRecord.class);
         }
 
@@ -56,7 +57,7 @@ public class OrderHistoryActivity extends FragmentActivity {
 
         @Override
         public int getTitleResId() {
-            return R.string.my_shopping_history;
+            return R.string.order_history;
         }
 
         class ViewHolder {

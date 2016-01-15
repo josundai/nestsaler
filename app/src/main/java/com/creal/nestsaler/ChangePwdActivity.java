@@ -11,9 +11,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.creal.nestsaler.actions.AbstractAction;
-import com.creal.nestsaler.actions.CommonObjectAction;
+import com.creal.nestsaler.actions.ChangePwdAction;
 import com.creal.nestsaler.util.PreferenceUtil;
 import com.creal.nestsaler.util.UIUtil;
+import com.creal.nestsaler.util.Utils;
 import com.creal.nestsaler.views.HeaderView;
 
 import java.util.HashMap;
@@ -62,12 +63,12 @@ public class ChangePwdActivity extends Activity {
 
         final Dialog dialog = UIUtil.showLoadingDialog(this, getString(R.string.change_pwd), false);
         Map parameters = new HashMap();
-        String cardId = PreferenceUtil.getString(this, Constants.APP_USER_APP_NUMBER, null);
-        parameters.put(Constants.KEY_CARD_ID, cardId);
+        String appNum = PreferenceUtil.getString(this, Constants.APP_USER_APP_NUM, null);
+        parameters.put("app_number", appNum);
         parameters.put("old_pwd", oldPwd.toString());
-        parameters.put("new_pwd", newPwd.toString());
-        CommonObjectAction commonObjectAction = new CommonObjectAction(this, Constants.URL_CHANGE_PWD, parameters, null);
-        commonObjectAction.execute(new AbstractAction.UICallBack() {
+        parameters.put("new_pwd", Utils.md5(newPwd.toString()));
+        ChangePwdAction action = new ChangePwdAction(this, Constants.URL_CHARGE_MONEY, parameters);
+        action.execute(new AbstractAction.UICallBack() {
             public void onSuccess(Object result) {
                 dialog.dismiss();
                 Toast.makeText(ChangePwdActivity.this, R.string.change_pwd_succ, Toast.LENGTH_SHORT).show();

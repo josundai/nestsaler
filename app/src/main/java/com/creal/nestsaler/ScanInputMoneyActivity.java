@@ -54,7 +54,12 @@ public class ScanInputMoneyActivity extends Activity {
                         mMoneyNumber.requestFocus();
                     }else{
 //                        Toast.makeText(ScanInputMoneyActivity.this, "Trigger scan activity!", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(ScanInputMoneyActivity.this, MipcaActivityCapture.class);
+                        Intent intent = new Intent(ScanInputMoneyActivity.this, ScanBinCodeActivity.class);
+
+                        Bundle bundle=new Bundle();
+
+                        bundle.putDouble("chargeMoney", money);
+                        intent.putExtras(bundle);
                         startActivity(intent);
                     }
 

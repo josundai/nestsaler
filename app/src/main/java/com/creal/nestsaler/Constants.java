@@ -5,10 +5,13 @@ public class Constants {
     public static final String URL_ACTIVE_ACCOUNT            = "http://" + SERVER_HOST + "/lmk_interface/selleractivation/index.php";
     public static final String URL_LOGIN                     = "http://" + SERVER_HOST + "/lmk_interface/sellerlogin/index.php";
     public static final String URL_GET_ORDER_RECORD          = "http://" + SERVER_HOST + "/lmk_interface/sellerorder/index.php";
-    public static final String URL_CHANGE_PWD                = "http://" + SERVER_HOST + "/lmk_interface/cpwd/index.php";
+    public static final String URL_CHANGE_PWD                = "http://" + SERVER_HOST + "/lmk_interface/sellerrepwd/index.php";
+    public static final String URL_CANCEL_ORDER              = "http://" + SERVER_HOST + "/lmk_interface/sellerreturn/index.php";
+    public static final String URL_CHARGE_MONEY              = "http://" + SERVER_HOST + "/lmk_interface/sellertrading/index.php";
+    public static final String URL_QUERY_CHARGE_RESULT       = "http://" + SERVER_HOST + "/lmk_interface/sellertradingresult/index.php";
+
 
     public final static String KEY_CARD_ID = "card_id";
-    public final static String KEY_CARD_NUM = "card_num";
     public final static String KEY_MOBILE = "mobile";
     public final static String KEY_VERIFICATION_CODE = "vcode";
     public final static String KEY_INTEGRAL = "integral";
@@ -24,6 +27,12 @@ public class Constants {
     public static final String APP_USER_PWD           = "app_user_pwd";
     public static final String APP_USER_APP_NUMBER = "app_user_card_id";
     public static final String APP_USER_APP_NUM = "app_user_app_num";
+
+
+    public static final String CHARGE_ORDER_ID = "prepaid_id";
+    public static final String CHARGE_MONEY = "money";
+    public static final String CHARGE_SELLERNAME = "seller_name";
+
 
     public static final String APP_ACCOUNT_ACTIVE = "account_active";
 

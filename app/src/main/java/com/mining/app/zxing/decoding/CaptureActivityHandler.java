@@ -16,8 +16,6 @@
 
 package com.mining.app.zxing.decoding;
 
-import java.util.Vector;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -27,12 +25,14 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
-import com.creal.nestsaler.MipcaActivityCapture;
+import com.creal.nestsaler.ScanBinCodeActivity;
 import com.creal.nestsaler.R;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import com.mining.app.zxing.camera.CameraManager;
 import com.mining.app.zxing.view.ViewfinderResultPointCallback;
+
+import java.util.Vector;
 
 /**
  * This class handles all the messaging which comprises the state machine for capture.
@@ -41,7 +41,7 @@ public final class CaptureActivityHandler extends Handler {
 
   private static final String TAG = CaptureActivityHandler.class.getSimpleName();
 
-  private final MipcaActivityCapture activity;
+  private final ScanBinCodeActivity activity;
   private final DecodeThread decodeThread;
   private State state;
 
@@ -51,7 +51,7 @@ public final class CaptureActivityHandler extends Handler {
     DONE
   }
 
-  public CaptureActivityHandler(MipcaActivityCapture activity, Vector<BarcodeFormat> decodeFormats,
+  public CaptureActivityHandler(ScanBinCodeActivity activity, Vector<BarcodeFormat> decodeFormats,
       String characterSet) {
     this.activity = activity;
     decodeThread = new DecodeThread(activity, decodeFormats, characterSet,
@@ -82,10 +82,10 @@ public final class CaptureActivityHandler extends Handler {
         Log.d(TAG, "Got decode succeeded message");
         state = State.SUCCESS;
         Bundle bundle = message.getData();
-        
+
         /***********************************************************************/
         Bitmap barcode = bundle == null ? null :
-            (Bitmap) bundle.getParcelable(DecodeThread.BARCODE_BITMAP);//���ñ����߳�
+            (Bitmap) bundle.getParcelable(DecodeThread.BARCODE_BITMAP);
         
         activity.handleDecode((Result) message.obj, barcode);//���ؽ��?        /***********************************************************************/
         break;

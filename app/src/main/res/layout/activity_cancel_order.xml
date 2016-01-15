@@ -20,13 +20,13 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/id_txt_appNumber_id"
+            android:id="@+id/id_txt_order_id"
             android:layout_width="match_parent"
             android:layout_height="@dimen/input_text_height_middle"
             android:layout_gravity="center_horizontal"
             android:background="@color/input_bg"
             android:drawableLeft="@drawable/icon_login_card_id"
-            android:hint="@string/login_account_id"
+            android:hint="@string/cancel_order_hint_order"
             android:inputType="number"
             android:paddingLeft="10dip"
             android:textSize="16sp" />
@@ -36,54 +36,62 @@
             android:layout_height="1px"
             android:background="@drawable/divider_horizontal" />
 
-        <LinearLayout
-            android:id="@+id/id_first_login_panel"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/id_txt_auth_code"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/input_text_height_middle"
-                android:layout_gravity="center_horizontal"
-                android:background="@color/input_bg"
-                android:drawableLeft="@drawable/icon_login_pwd_code"
-                android:hint="@string/login_auth_code"
-                android:inputType="number"
-                android:paddingLeft="10dip"
-                android:textSize="16sp" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@drawable/divider_horizontal" />
-        </LinearLayout>
 
         <EditText
-            android:id="@+id/id_txt_password"
+            android:id="@+id/id_txt_amount"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/input_text_height_middle"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/input_bg"
+            android:drawableLeft="@drawable/ic_cancel_order"
+            android:hint="@string/cancel_order_hint_amount"
+            android:inputType="numberDecimal"
+            android:paddingLeft="10dip"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@drawable/divider_horizontal" />
+
+        <EditText
+            android:id="@+id/id_txt_card"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/input_text_height_middle"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/input_bg"
+            android:drawableLeft="@drawable/icon_login_card_id"
+            android:hint="@string/cancel_order_hint_card"
+            android:inputType="number"
+            android:paddingLeft="10dip"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@drawable/divider_horizontal" />
+
+        <EditText
+            android:id="@+id/id_txt_app_num"
             android:layout_width="match_parent"
             android:layout_height="@dimen/input_text_height_middle"
             android:layout_gravity="center_horizontal"
             android:background="@color/input_bg"
             android:drawableLeft="@drawable/icon_login_pwd"
-            android:hint="@string/login_password"
-            android:inputType="numberPassword"
+            android:hint="@string/cancel_order_hint_app_num"
             android:paddingLeft="10dip"
             android:textSize="16sp" />
 
         <Button
-            android:id="@+id/id_btn_login"
             android:layout_width="match_parent"
             android:layout_height="45dip"
             android:layout_marginLeft="15dip"
             android:layout_marginRight="15dip"
             android:layout_marginTop="13dip"
             android:background="@drawable/bg_darkred_big_cornered"
-            android:onClick="onLoginClick"
-            android:text="@string/login"
+            android:onClick="onSubmitClick"
+            android:text="@string/cancel_order_submit"
             android:textColor="@color/white"
             android:textSize="18sp" />
     </LinearLayout>
 </LinearLayout>
-<!-- From: file:/D:/project/nestsaler/app/src/main/res/layout/activity_login.xml -->

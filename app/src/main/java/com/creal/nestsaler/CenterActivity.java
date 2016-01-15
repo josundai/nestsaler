@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.creal.nestsaler.util.PreferenceUtil;
 import com.creal.nestsaler.util.UIUtil;
 import com.creal.nestsaler.views.HeaderView;
 
@@ -19,8 +20,9 @@ public class CenterActivity extends Activity {
 
     TextView mScan;
     TextView mHistory;
+    TextView mRebind;
     TextView mChangePassword;
-    TextView mAppSetting;
+    TextView mCancelOrder;
     TextView mAppUpdate;
     TextView mAboutUs;
 
@@ -46,8 +48,9 @@ public class CenterActivity extends Activity {
 
         mScan = (TextView) findViewById(R.id.id_CenterScan);
         mHistory = (TextView) findViewById(R.id.id_CenterHistory);
+        mRebind = (TextView) findViewById(R.id.id_rebind);
         mChangePassword = (TextView) findViewById(R.id.id_CenterChangePassword);
-        mAppSetting = (TextView) findViewById(R.id.id_CenterSoftSetting);
+        mCancelOrder = (TextView) findViewById(R.id.id_cancel_order);
         mAppUpdate = (TextView) findViewById(R.id.id_CenterSoftUpdate);
         mAboutUs = (TextView) findViewById(R.id.id_CenterAboutUs);
         addListeners();
@@ -84,18 +87,37 @@ public class CenterActivity extends Activity {
                 startActivity(intent);
             }
         });
+        mRebind.setOnClickListener(
+                new View.OnClickListener() {
+                    public void onClick(View v) {
+                        UIUtil.showConfirmDialog(CenterActivity.this, R.string.rebind_confirm, R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                                PreferenceUtil.removeKey(CenterActivity.this, Constants.APP_ACCOUNT_ACTIVE);
+                                PreferenceUtil.removeKey(CenterActivity.this, Constants.APP_USER_APP_NUM);
+                                PreferenceUtil.removeKey(CenterActivity.this, Constants.APP_BINDING_KEY);
+                                Intent intent = new Intent(CenterActivity.this, LoginActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        }, R.string.cancel, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                    }
+                });
         mChangePassword.setOnClickListener(
                 new View.OnClickListener() {
-                    @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(CenterActivity.this, ChangePwdActivity.class);
                         startActivity(intent);
                     }
-
                 });
-        mAppSetting.setOnClickListener(new View.OnClickListener() {
+        mCancelOrder.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(CenterActivity.this, "Not implemented yet!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(CenterActivity.this, CancelOrderActivity.class);
+                startActivity(intent);
             }
         });
         mAppUpdate.setOnClickListener(new View.OnClickListener() {

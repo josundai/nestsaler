@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -46,11 +47,12 @@ public class LoginActivity extends Activity {
 
     private void init(HeaderView headerView ){
         String active = PreferenceUtil.getString(this, Constants.APP_ACCOUNT_ACTIVE, null);
-        if( Boolean.FALSE.toString().equalsIgnoreCase(active)){
-            findViewById(R.id.id_first_login_panel).setVisibility(View.GONE);
-        }else{
+        if( Boolean.TRUE.toString().equalsIgnoreCase(active)){
             //已经注册
+            findViewById(R.id.id_first_login_panel).setVisibility(View.GONE);
             headerView.setTitle(R.string.login_account_login);
+        }else{
+            ((Button)findViewById(R.id.id_btn_login)).setText(R.string.active);
             isRegister = true;
         }
     }
@@ -70,20 +72,17 @@ public class LoginActivity extends Activity {
         }
 
         CharSequence activationCode = mActiveCode.getText();
-        if(TextUtils.isEmpty(activationCode)){
+        if(isRegister && TextUtils.isEmpty(activationCode)){
             Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
             mActiveCode.startAnimation(shake);
             return;
         }
-
-
-        PreferenceUtil.saveString(this, Constants.APP_USER_APP_NUM, appNumber.toString());
-        PreferenceUtil.saveString(this, Constants.APP_USER_PWD, password.toString());
-        final LoginAction loginAction = new LoginAction(this, isRegister, appNumber.toString(), password.toString(), activationCode.toString() );
+        final LoginAction loginAction = new LoginAction(this, isRegister, appNumber.toString(), password.toString(), isRegister? activationCode.toString() : null );
         final Dialog progressDialog = UIUtil.showLoadingDialog(this, getString(R.string.signing), false);
         loginAction.execute(new AbstractAction.UICallBack() {
             public void onSuccess(Object result) {
                 progressDialog.dismiss();
+                startNext();
                 finish();
             }
 
@@ -92,12 +91,10 @@ public class LoginActivity extends Activity {
                 Toast.makeText(LoginActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-        startNext();
     }
 
     private void startNext(){
         Intent intent = new Intent(this, CenterActivity.class);
         startActivity(intent);
-        finish();
     }
 }

@@ -47,6 +47,28 @@
                 android:layout_height="1px"
                 android:background="@drawable/divider_horizontal" />
 
+            <!--商户退货-->
+            <TextView
+                android:id="@+id/id_cancel_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginTop="5dip"
+                android:drawableLeft="@drawable/ic_set_cancel_order"
+                android:drawablePadding="5dp"
+                android:drawableRight="@drawable/right_arrow"
+                android:gravity="center|left"
+                android:padding="10dip"
+                android:paddingLeft="30dip"
+                android:text="@string/center_cancel_order"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@drawable/divider_horizontal" />
+
             <!--历史记录-->
             <TextView
                 android:id="@+id/id_CenterHistory"
@@ -61,6 +83,28 @@
                 android:padding="10dip"
                 android:paddingLeft="30dip"
                 android:text="@string/center_check_history"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@drawable/divider_horizontal" />
+
+            <!--修改密码-->
+            <TextView
+                android:id="@+id/id_rebind"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:background="@color/white"
+                android:drawableLeft="@drawable/icon_set_change_pwd"
+                android:drawablePadding="5dp"
+                android:drawableRight="@drawable/right_arrow"
+                android:gravity="center|left"
+                android:padding="10dip"
+                android:paddingLeft="30dip"
+                android:text="@string/center_rebind"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -89,21 +133,21 @@
 
             <!--软件设置-->
 
-            <TextView
-                android:id="@+id/id_CenterSoftSetting"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dip"
-                android:background="@color/white"
-                android:drawableLeft="@drawable/icon_set_set"
-                android:drawablePadding="5dp"
-                android:drawableRight="@drawable/right_arrow"
-                android:gravity="center|left"
-                android:padding="10dip"
-                android:paddingLeft="30dip"
-                android:text="@string/center_soft_setting"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
+            <!--<TextView-->
+                <!--android:id="@+id/id_CenterSoftSetting"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="5dip"-->
+                <!--android:background="@color/white"-->
+                <!--android:drawableLeft="@drawable/icon_set_set"-->
+                <!--android:drawablePadding="5dp"-->
+                <!--android:drawableRight="@drawable/right_arrow"-->
+                <!--android:gravity="center|left"-->
+                <!--android:padding="10dip"-->
+                <!--android:paddingLeft="30dip"-->
+                <!--android:text="@string/center_soft_setting"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="16sp" />-->
 
             <View
                 android:layout_width="match_parent"
@@ -152,12 +196,4 @@
 
         </LinearLayout>
     </ScrollView>
-
-
-    <com.creal.nestsaler.views.BottomView
-        android:id="@+id/bottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="bottom"
-        android:layout_gravity="center_horizontal" />
 </LinearLayout>

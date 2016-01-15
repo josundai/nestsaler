@@ -23,7 +23,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 
-import com.creal.nestsaler.MipcaActivityCapture;
+import com.creal.nestsaler.ScanBinCodeActivity;
 import com.creal.nestsaler.R;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
@@ -38,10 +38,10 @@ final class DecodeHandler extends Handler {
 
   private static final String TAG = DecodeHandler.class.getSimpleName();
 
-  private final MipcaActivityCapture activity;
+  private final ScanBinCodeActivity activity;
   private final MultiFormatReader multiFormatReader;
 
-  DecodeHandler(MipcaActivityCapture activity, Hashtable<DecodeHintType, Object> hints) {
+  DecodeHandler(ScanBinCodeActivity activity, Hashtable<DecodeHintType, Object> hints) {
     multiFormatReader = new MultiFormatReader();
     multiFormatReader.setHints(hints);
     this.activity = activity;

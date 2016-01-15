@@ -28,11 +28,4 @@
 
         </LinearLayout>
     </ScrollView>
-
-    <com.creal.nestsaler.views.BottomView
-        android:id="@+id/bottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="bottom"
-        android:layout_gravity="center_horizontal" />
 </LinearLayout>

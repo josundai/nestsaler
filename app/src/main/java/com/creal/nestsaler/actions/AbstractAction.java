@@ -337,8 +337,8 @@ public abstract class AbstractAction<Result> extends ParallelTask<AbstractAction
                 if(body != null){
                     bodyStr = body.toString();
                 }
-                String key = PreferenceUtil.getString(mAppContext, Constants.APP_BINDING_KEY, Constants.APP_DEFAULT_KEY);
-                String clientSignature = Utils.md5(flag + bodyStr + timeStr + key);
+//                String key = PreferenceUtil.getString(mAppContext, Constants.APP_BINDING_KEY, Constants.APP_DEFAULT_KEY);
+                String clientSignature = Utils.md5(flag + bodyStr + timeStr + getEncryptKey());
                 if(!clientSignature.equals(signature)){
                     Log.e(tag, "Verification failed, the data might be modified！！！");
                     ActionError error = new ActionError(ErrorCode.SECURITY_ERROR, "数据校验未通过！！！");

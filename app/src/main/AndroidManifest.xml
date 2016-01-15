@@ -15,6 +15,7 @@
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -34,9 +35,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" android:theme="@style/Theme.Custom.NoActionBar" android:screenOrientation="portrait"/>
-        <activity android:name=".MipcaActivityCapture" android:theme="@style/Theme.Custom.NoActionBar" android:screenOrientation="portrait"/>
+        <activity android:name=".ScanBinCodeActivity" android:theme="@style/Theme.Custom.NoActionBar" android:screenOrientation="portrait"/>
         <activity android:name=".CenterActivity" android:theme="@style/Theme.Custom.NoActionBar" android:screenOrientation="portrait"/>
         <activity android:name=".ChangePwdActivity" android:theme="@style/Theme.Custom.NoActionBar" android:screenOrientation="portrait"/>
+        <activity android:name=".CancelOrderActivity" android:theme="@style/Theme.Custom.NoActionBar" android:screenOrientation="portrait"/>
+        <activity android:name=".CancelOrderConfirmActivity" android:theme="@style/Theme.Custom.NoActionBar" android:screenOrientation="portrait"/>
+        <activity android:name=".CancelOrderSuccDialog" android:theme="@style/Theme.CustomDialog" android:screenOrientation="portrait"/>
+        <activity android:name=".ChargeMoneyConfirmDialog" android:theme="@style/Theme.CustomDialog" android:screenOrientation="portrait"/>
         <activity android:name=".OrderHistoryActivity" android:theme="@style/Theme.Custom.NoActionBar" android:screenOrientation="portrait"/>
         <activity android:name=".ScanInputMoneyActivity" android:theme="@style/Theme.Custom.NoActionBar" android:screenOrientation="portrait"/>
         <activity android:name=".SettingActivity" android:theme="@style/Theme.Custom.NoActionBar" android:screenOrientation="portrait"/>

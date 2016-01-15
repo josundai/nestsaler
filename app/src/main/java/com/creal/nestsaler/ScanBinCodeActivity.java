@@ -15,6 +15,9 @@ import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
 import android.widget.Toast;
 
+import com.creal.nestsaler.actions.AbstractAction;
+import com.creal.nestsaler.actions.JSONObjectAction;
+import com.creal.nestsaler.util.PreferenceUtil;
 import com.creal.nestsaler.views.HeaderView;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
@@ -23,14 +26,16 @@ import com.mining.app.zxing.decoding.CaptureActivityHandler;
 import com.mining.app.zxing.decoding.InactivityTimer;
 import com.mining.app.zxing.view.ViewfinderView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Vector;
 
-/**
- * Initial the camera
- * @author Ryan.Tang
- */
-public class MipcaActivityCapture extends Activity implements Callback {
+
+public class ScanBinCodeActivity extends Activity implements Callback {
 
 	private CaptureActivityHandler handler;
 	private ViewfinderView viewfinderView;
@@ -42,17 +47,18 @@ public class MipcaActivityCapture extends Activity implements Callback {
 	private boolean playBeep;
 	private static final float BEEP_VOLUME = 0.10f;
 	private boolean vibrate;
+	private double money;
 
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_capture);
-
+		Bundle bundle = this.getIntent().getExtras();
+		money = bundle.getDouble("chargeMoney");
 		HeaderView headerView = (HeaderView) findViewById(R.id.header);
 		headerView.hideRightImage();
 		headerView.setTitle(R.string.scan);
-
 		//ViewUtil.addTopView(getApplicationContext(), this, R.string.scan_card);
 		CameraManager.init(getApplication());
 		viewfinderView = (ViewfinderView) findViewById(R.id.viewfinder_view);
@@ -81,7 +87,6 @@ public class MipcaActivityCapture extends Activity implements Callback {
 		}
 		initBeepSound();
 		vibrate = true;
-		
 	}
 
 	@Override
@@ -100,27 +105,52 @@ public class MipcaActivityCapture extends Activity implements Callback {
 		super.onDestroy();
 	}
 	
-	/**
-	 * ����ɨ����
-	 * @param result
-	 * @param barcode
-	 */
 	public void handleDecode(Result result, Bitmap barcode) {
 		inactivityTimer.onActivity();
 		playBeepSoundAndVibrate();
 		String resultString = result.getText();
 		if (resultString.equals("")) {
-			Toast.makeText(MipcaActivityCapture.this, "Scan failed!", Toast.LENGTH_SHORT).show();
+			Toast.makeText(ScanBinCodeActivity.this, "Scan failed!", Toast.LENGTH_SHORT).show();
 		}else {
-			Intent resultIntent = new Intent();
-			Bundle bundle = new Bundle();
-			bundle.putString("result", resultString);
-			bundle.putParcelable("bitmap", barcode);
-			resultIntent.putExtras(bundle);
-			this.setResult(RESULT_OK, resultIntent);
+			sendChargingRequest(resultString);
 		}
-		MipcaActivityCapture.this.finish();
+//		ScanBinCodeActivity.this.finish();
 	}
+
+	private void sendChargingRequest(String scanCode){
+		Map parameters = new HashMap();
+		String appNum = PreferenceUtil.getString(this, Constants.APP_USER_APP_NUM, null);
+		parameters.put("money", String.valueOf(money) );
+		parameters.put("app_number", appNum);
+		parameters.put("qr_code", scanCode);
+
+		JSONObjectAction action = new JSONObjectAction(this, Constants.URL_CHARGE_MONEY, parameters);
+		action.execute(new JSONObjectAction.UICallBack() {
+			public void onSuccess(Object result)  {
+				if( result instanceof  JSONObject){
+					JSONObject jObj = (JSONObject) result;
+					String orderNumber = null;
+					String orderMoney = null;
+					try {
+						orderNumber = jObj.getString("prepaid_id");
+						orderMoney = jObj.getString("money");
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
+					Intent intent = new Intent(ScanBinCodeActivity.this, ChargeMoneyConfirmDialog.class);
+					intent.putExtra(ChargeMoneyConfirmDialog.ORDER_ID, orderNumber);
+					intent.putExtra(ChargeMoneyConfirmDialog.ORDER_MONEY, orderMoney);
+//					startActivityForResult(intent, CancelOrderSuccDialog.ACTIVITY_ID);
+					startActivity(intent);
+				}
+			}
+			public void onFailure(AbstractAction.ActionError error) {
+//				dialog.dismiss();
+				Toast.makeText(ScanBinCodeActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+			}
+		});
+	}
+
 	
 	private void initCamera(SurfaceHolder surfaceHolder) {
 		try {

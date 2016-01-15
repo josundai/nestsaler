@@ -2,7 +2,9 @@
 <resources>
     <!--center menu-->
     <string name="center_scan_code">扫码</string>
+    <string name="center_cancel_order">商户退货</string>
     <string name="center_check_history">查看历史记录</string>
+    <string name="center_rebind">重新绑定</string>
     <string name="center_change_password">修改密码</string>
     <string name="center_soft_setting">软件设置</string>
     <string name="center_soft_update">更新</string>
@@ -10,6 +12,8 @@
     <string name="welcome_sign_in">欢迎登录</string>
     <string name="page_title_exit">退出</string>
     <string name="confirm_logout">您确定要退出吗？</string>
+    <string name="order_history">交易记录</string>
+    <string name="rebind_confirm">您确定要重新绑定新账户吗？</string>
     <string name="ok">确定</string>
     <string name="cancel">取消</string>
 
@@ -40,9 +44,27 @@
     <string name="receivemoney">收款</string>
 
 
+    <string name="cancel_order_submit">提交</string>
+    <string name="cancel_order_hint_app_num">请填写设备编码</string>
+    <string name="cancel_order_hint_card">请填写卡号</string>
+    <string name="cancel_order_hint_amount">请填写订单金额</string>
+    <string name="cancel_order_hint_order">请填写订单号</string>
+    <string name="cancel_order_order_id">订单号</string>
+    <string name="cancel_order_order_amount">订单金额</string>
+    <string name="cancel_order_card_id">卡号</string>
+    <string name="cancel_order_app_num">设备编码</string>
+    <string name="cancel_order_hint_password">请输入登录密码</string>
+    <string name="cancel_order_cancel">取消</string>
+    <string name="cancel_order_ok">确定</string>
+    <string name="cancel_order_succ">退货成功</string>
+    <string name="cancel_order_result_desc" formatted="false">您申请的%s订单已经退货成功。</string>
+    <string name="cancel_order_back_to_home">返回首页</string>
+
+
+
     <string name="select_an_api">选择一个接口</string>
     <string name="gototest">测试</string>
-    <string name="app_name">燕窝</string>
+    <string name="app_name">燕窝商户</string>
     <string name="hello_world">Hello world!</string>
     <string name="main_tab_title_home">首页</string>
     <string name="main_tab_title_nearby">附近商家</string>
@@ -53,10 +75,15 @@
     <string name="search">搜索</string>
     <string name="search_history">搜索记录</string>
     <string name="search_history_clean">清除</string>
+    <string name="charge_money_orderNumber">订单号:</string>
+    <string name="charge_money_number">￥</string>
+    <string name="charge_money_confirmed">确认收款</string>
+
 
     <!--登录相关-->
     <string name="login">商家登录</string>
-    <string name="login_first_time">商家首次登录</string>
+    <string name="active">商家激活</string>
+    <string name="login_first_time">商家激活</string>
     <string name="login_account_login">账号登录</string>
     <string name="login_account_id">收银员账号</string>
     <string name="login_auth_code">请填写授权码</string>

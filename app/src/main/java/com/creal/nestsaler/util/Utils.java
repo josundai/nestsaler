@@ -27,6 +27,7 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -60,6 +61,16 @@ public class Utils {
         }
     }
 
+    public static String formatMoneyInYuan(String number){
+        try {
+            double amount = Double.parseDouble(number);
+            DecimalFormat formatter = new DecimalFormat("#,###.00");
+            return formatter.format(amount);
+        } catch (Exception e) {
+            Log.e(tag, "Failed to format number" + number);
+            return null;
+        }
+    }
     public static String formatDate(String format, long date) {
     	return formatDate(format, new Date(date));
     }

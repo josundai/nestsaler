@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_white_big_cornered"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <!--ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/icon_recharge_select"
+        android:gravity="center" /-->
+
+    <TextView
+        android:id="@+id/id_charge_money_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/charge_money_orderNumber"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_middle" />
+
+    <TextView
+        android:id="@+id/id_charge_money_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="60dp"
+        android:gravity="center"
+        android:onClick="onBackClick"
+        android:text="@string/charge_money_number"
+        android:textColor="@color/darkgray"
+        android:textSize="@dimen/font_xx_larger" />
+
+    <Button
+        android:id="@+id/id_charge_money_submit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/input_text_height_middle"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:background="@drawable/bg_darkred_big_cornered"
+        android:onClick="onConfirmChargeClick"
+        android:text="@string/charge_money_confirmed"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+</LinearLayout>
