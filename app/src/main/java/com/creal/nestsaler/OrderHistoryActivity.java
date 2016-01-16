@@ -49,7 +49,7 @@ public class OrderHistoryActivity extends FragmentActivity {
             } else {
                 holder = (ViewHolder) convertView.getTag();
             }
-            holder.card.setText(item.getSellerName());
+            holder.card.setText(item.getOrderId());
             holder.status.setText(item.getState().toString());
             holder.time.setText(String.format(getString(R.string.shop_time), item.getOrderTime()));
             holder.cost.setText(Utils.formatMoney(item.getAmount()) + "元");

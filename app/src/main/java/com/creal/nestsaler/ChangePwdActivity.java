@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.creal.nestsaler.actions.AbstractAction;
-import com.creal.nestsaler.actions.ChangePwdAction;
+import com.creal.nestsaler.actions.MD5PwdAction;
 import com.creal.nestsaler.util.PreferenceUtil;
 import com.creal.nestsaler.util.UIUtil;
 import com.creal.nestsaler.util.Utils;
@@ -67,7 +67,7 @@ public class ChangePwdActivity extends Activity {
         parameters.put("app_number", appNum);
         parameters.put("old_pwd", oldPwd.toString());
         parameters.put("new_pwd", Utils.md5(newPwd.toString()));
-        ChangePwdAction action = new ChangePwdAction(this, Constants.URL_CHANGE_PWD, parameters);
+        MD5PwdAction action = new MD5PwdAction(this, Constants.URL_CHANGE_PWD, parameters, "old_pwd");
         action.execute(new AbstractAction.UICallBack() {
             public void onSuccess(Object result) {
                 dialog.dismiss();

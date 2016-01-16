@@ -1,7 +1,6 @@
 package com.creal.nestsaler;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -9,17 +8,9 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.creal.nestsaler.actions.AbstractAction;
-import com.creal.nestsaler.actions.CancelOrderAction;
-import com.creal.nestsaler.actions.LoginAction;
 import com.creal.nestsaler.util.PreferenceUtil;
-import com.creal.nestsaler.util.UIUtil;
 import com.creal.nestsaler.views.HeaderView;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class CancelOrderActivity extends Activity {
     private EditText mOrderId;

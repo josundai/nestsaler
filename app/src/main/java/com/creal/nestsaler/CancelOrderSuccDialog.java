@@ -28,6 +28,10 @@ public class CancelOrderSuccDialog extends Activity {
         }
     }
 
+    public void onBackPressed() {
+        onBackToHomeClick(null);
+    }
+
     public void onBackToHomeClick(View view){
         setResult(1, null);
         finish();

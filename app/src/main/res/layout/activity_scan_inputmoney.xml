@@ -33,6 +33,7 @@
             android:drawableLeft="@drawable/icon_register_user_name"
             android:drawableRight="@drawable/icon_button_right_delete"
             android:hint="@string/scan_input_money"
+            android:inputType="numberDecimal"
             android:textSize="16sp" />
 
         <View

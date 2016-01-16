@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.creal.nestsaler.actions.AbstractAction;
-import com.creal.nestsaler.actions.CancelOrderAction;
+import com.creal.nestsaler.actions.MD5PwdAction;
 import com.creal.nestsaler.util.UIUtil;
 import com.creal.nestsaler.util.Utils;
 import com.creal.nestsaler.views.HeaderView;
@@ -79,7 +79,7 @@ public class CancelOrderConfirmActivity extends Activity {
         parameters.put("password", mPassword.getText().toString());
         parameters.put("original_time", "");
         parameters.put("serial_number", "");
-        final CancelOrderAction cancelOrderAction = new CancelOrderAction(this, Constants.URL_CANCEL_ORDER, parameters);
+        final MD5PwdAction cancelOrderAction = new MD5PwdAction(this, Constants.URL_CANCEL_ORDER, parameters, "password");
         final Dialog progressDialog = UIUtil.showLoadingDialog(this, getString(R.string.signing), false);
         cancelOrderAction.execute(new AbstractAction.UICallBack() {
             public void onSuccess(Object result) {
