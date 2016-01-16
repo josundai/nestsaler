@@ -78,7 +78,7 @@
     <string name="search_history_clean">清除</string>
     <string name="charge_money_orderNumber">订单号:</string>
     <string name="charge_money_number">￥</string>
-    <string name="charge_money_confirmed">确认收款</string>
+    <string name="charge_money_cancel">取消</string>
 
 
     <!--登录相关-->

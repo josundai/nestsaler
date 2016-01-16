@@ -27,13 +27,28 @@
         android:id="@+id/id_charge_money_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="30dp"
         android:gravity="center"
         android:onClick="onBackClick"
         android:text="@string/charge_money_number"
         android:textColor="@color/darkgray"
         android:textSize="@dimen/font_xx_larger" />
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/loading" />
+
+    <TextView
+        android:id="@+id/tipTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:text="数据加载中……" />
 
     <Button
         android:id="@+id/id_charge_money_submit"
@@ -43,8 +58,8 @@
         android:layout_marginLeft="15dip"
         android:layout_marginRight="15dip"
         android:background="@drawable/bg_darkred_big_cornered"
-        android:onClick="onConfirmChargeClick"
-        android:text="@string/charge_money_confirmed"
+        android:onClick="onCancelClick"
+        android:text="@string/charge_money_cancel"
         android:textColor="@color/white"
         android:textSize="18sp" />
 </LinearLayout>

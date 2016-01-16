@@ -117,13 +117,12 @@ public class ScanBinCodeActivity extends Activity implements Callback {
 		}else {
 			sendChargingRequest(resultString);
 		}
-//		ScanBinCodeActivity.this.finish();
 	}
 
 	private void sendChargingRequest(String scanCode){
 		Map parameters = new HashMap();
 		String appNum = PreferenceUtil.getString(this, Constants.APP_USER_APP_NUM, null);
-		parameters.put("money", String.valueOf(money * 100) );
+		parameters.put("money", String.valueOf((int)(money * 100)));
 		parameters.put("app_number", appNum);
 		parameters.put("qr_code", scanCode);
 
