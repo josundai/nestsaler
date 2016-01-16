@@ -39,8 +39,8 @@ public class ChargeMoneyConfirmDialog extends Activity {
         money = getIntent().getStringExtra(ORDER_MONEY);
 
         if(orderId != null) {
-            mOrderNumView.setText( orderId );
-            mMoneyView.setText(  money);
+            mOrderNumView.setText(this.getString(R.string.charge_money_orderNumber)+ orderId );
+            mMoneyView.setText( this.getString(R.string.charge_money_number) + money);
         }
     }
 

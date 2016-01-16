@@ -23,13 +23,21 @@ public class ScanInputMoneyActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_inputmoney);
 
+        Bundle bundle = this.getIntent().getExtras();
+        String money = null;
+        if( bundle!=null ){
+             money = bundle.getString("chargeMoney");
+        }
+        if( money==null ){
+            money = "";
+        }
+
         HeaderView headerView = (HeaderView) findViewById(R.id.header);
         headerView.hideRightImage();
         headerView.setTitle(R.string.receivemoney);
         headerView.setTitleLeft();
-
-
         mMoneyNumber = (TextView) findViewById(R.id.id_input_money);
+        mMoneyNumber.setText( money );
         submitButton = (Button) findViewById(R.id.id_scan_submit_button);
 
         submitButton.setOnClickListener(
@@ -55,9 +63,7 @@ public class ScanInputMoneyActivity extends Activity {
                     }else{
 //                        Toast.makeText(ScanInputMoneyActivity.this, "Trigger scan activity!", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(ScanInputMoneyActivity.this, ScanBinCodeActivity.class);
-
                         Bundle bundle=new Bundle();
-
                         bundle.putDouble("chargeMoney", money);
                         intent.putExtras(bundle);
                         startActivity(intent);

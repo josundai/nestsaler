@@ -48,6 +48,7 @@ public class ScanBinCodeActivity extends Activity implements Callback {
 	private static final float BEEP_VOLUME = 0.10f;
 	private boolean vibrate;
 	private double money;
+	private ScanBinCodeActivity self;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -64,6 +65,7 @@ public class ScanBinCodeActivity extends Activity implements Callback {
 		viewfinderView = (ViewfinderView) findViewById(R.id.viewfinder_view);
 		hasSurface = false;
 		inactivityTimer = new InactivityTimer(this);
+		self = this;
 	}
 
 	@Override
@@ -147,6 +149,15 @@ public class ScanBinCodeActivity extends Activity implements Callback {
 			public void onFailure(AbstractAction.ActionError error) {
 //				dialog.dismiss();
 				Toast.makeText(ScanBinCodeActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+				/*
+				Intent intent = new Intent(ScanBinCodeActivity.this, ScanInputMoneyActivity.class);
+				Bundle bundle=new Bundle();
+				bundle.putDouble("chargeMoney", money);
+				intent.putExtras(bundle);
+				startActivity(intent);
+				finish();
+				*/
+				self.onBackPressed();
 			}
 		});
 	}
