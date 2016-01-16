@@ -84,24 +84,25 @@ public class CancelOrderConfirmActivity extends Activity {
         cancelOrderAction.execute(new AbstractAction.UICallBack() {
             public void onSuccess(Object result) {
                 progressDialog.dismiss();
-                Intent intent = new Intent(CancelOrderConfirmActivity.this, CancelOrderSuccDialog.class);
-                intent.putExtra(CancelOrderSuccDialog.INTENT_EXTRA_ORDER_ID, mOrderId.getText().toString());
-                startActivityForResult(intent, CancelOrderSuccDialog.ACTIVITY_ID);
+                Intent intent = new Intent(CancelOrderConfirmActivity.this, SuccDialog.class);
+                intent.putExtra(SuccDialog.DLG_TYPE, SuccDialog.DLG_TYPE_CANCEL_ORDER);
+                intent.putExtra(SuccDialog.INTENT_EXTRA_DATA, mOrderId.getText().toString());
+                startActivityForResult(intent, SuccDialog.ACTIVITY_ID);
             }
 
             public void onFailure(AbstractAction.ActionError error) {
                 progressDialog.dismiss();
                 Toast.makeText(CancelOrderConfirmActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
                 //Test code below
-//                Intent intent = new Intent(CancelOrderConfirmActivity.this, CancelOrderSuccDialog.class);
-//                intent.putExtra(CancelOrderSuccDialog.INTENT_EXTRA_ORDER_ID, mOrderId.getText().toString());
-//                startActivityForResult(intent, CancelOrderSuccDialog.ACTIVITY_ID);
+//                Intent intent = new Intent(CancelOrderConfirmActivity.this, SuccDialog.class);
+//                intent.putExtra(SuccDialog.INTENT_EXTRA_ORDER_ID, mOrderId.getText().toString());
+//                startActivityForResult(intent, SuccDialog.ACTIVITY_ID);
             }
         });
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode == CancelOrderSuccDialog.ACTIVITY_ID){
+        if(requestCode == SuccDialog.ACTIVITY_ID){
             if(resultCode != 0){
                 setResult(1, null);
                 finish();

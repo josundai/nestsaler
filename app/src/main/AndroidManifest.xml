@@ -40,7 +40,7 @@
         <activity android:name=".ChangePwdActivity" android:theme="@style/Theme.Custom.NoActionBar" android:screenOrientation="portrait"/>
         <activity android:name=".CancelOrderActivity" android:theme="@style/Theme.Custom.NoActionBar" android:screenOrientation="portrait"/>
         <activity android:name=".CancelOrderConfirmActivity" android:theme="@style/Theme.Custom.NoActionBar" android:screenOrientation="portrait"/>
-        <activity android:name=".CancelOrderSuccDialog" android:theme="@style/Theme.CustomDialog" android:screenOrientation="portrait"/>
+        <activity android:name=".SuccDialog" android:theme="@style/Theme.CustomDialog" android:screenOrientation="portrait"/>
         <activity android:name=".ChargeMoneyConfirmDialog" android:theme="@style/Theme.CustomDialog" android:screenOrientation="portrait"/>
         <activity android:name=".OrderHistoryActivity" android:theme="@style/Theme.Custom.NoActionBar" android:screenOrientation="portrait"/>
         <activity android:name=".ScanInputMoneyActivity" android:theme="@style/Theme.Custom.NoActionBar" android:screenOrientation="portrait"/>

@@ -1,6 +1,7 @@
 package com.creal.nestsaler;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,10 +10,10 @@ import android.widget.Toast;
 
 import com.creal.nestsaler.actions.AbstractAction;
 import com.creal.nestsaler.actions.JSONObjectAction;
+import com.creal.nestsaler.util.JSONUtil;
 import com.creal.nestsaler.util.PreferenceUtil;
 import com.creal.nestsaler.util.Utils;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -55,37 +56,19 @@ public class ChargeMoneyConfirmDialog extends Activity {
         parameters.put("prepaid_id", orderId);
 
         JSONObjectAction action = new JSONObjectAction(this, Constants.URL_QUERY_CHARGE_RESULT, parameters);
-        action.execute(new JSONObjectAction.UICallBack() {
-            public void onSuccess(Object result) {
-                if( result instanceof JSONObject){
-                    JSONObject jObj = (JSONObject) result;
-                    try {
-                        String orderNumber = jObj.getString("order_id");
-                        String orderMoney = jObj.getString("order_time");
-                        String money = jObj.getString("money");
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    //TODO: 提示生成订单。然后等候付款方付款。此时是什么界面？？？
-                    /**
-                    Intent intent = new Intent(ChargeMoneyConfirmDialog.this, ChargeMoneyConfirmDialog.class);
-                    intent.putExtra(ChargeMoneyConfirmDialog.ORDER_ID, orderNumber);
-                    intent.putExtra(ChargeMoneyConfirmDialog.ORDER_MONEY, orderMoney);
-//					startActivityForResult(intent, CancelOrderSuccDialog.ACTIVITY_ID);
-                    startActivity(intent);
-                     **/
-
-                }
+        action.execute(new JSONObjectAction.UICallBack<JSONObject>() {
+            public void onSuccess(JSONObject jObj) {
+                String orderMoney = JSONUtil.getString(jObj, "money", "");
+                Intent intent = new Intent(ChargeMoneyConfirmDialog.this, SuccDialog.class);
+                intent.putExtra(SuccDialog.INTENT_EXTRA_DATA, orderMoney);
+                startActivity(intent);
+                finish();
             }
+
             public void onFailure(AbstractAction.ActionError error) {
 //				dialog.dismiss();
                 Toast.makeText(ChargeMoneyConfirmDialog.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
-
-
     }
 }

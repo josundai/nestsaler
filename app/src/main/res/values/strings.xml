@@ -42,6 +42,7 @@
     <string name="error_field_be_positive">金额必须大于零</string>
 
     <string name="receivemoney">收款</string>
+    <string name="charge_result_msg" formatted="false">您已成功收款%s</string>
 
 
     <string name="cancel_order_submit">提交</string>

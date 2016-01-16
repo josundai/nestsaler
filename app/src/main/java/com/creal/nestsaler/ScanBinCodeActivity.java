@@ -133,7 +133,7 @@ public class ScanBinCodeActivity extends Activity implements Callback {
 				Intent intent = new Intent(ScanBinCodeActivity.this, ChargeMoneyConfirmDialog.class);
 				intent.putExtra(ChargeMoneyConfirmDialog.ORDER_ID, JSONUtil.getString(jObj, "prepaid_id", ""));
 				intent.putExtra(ChargeMoneyConfirmDialog.ORDER_MONEY, JSONUtil.getString(jObj, "money", ""));
-//					startActivityForResult(intent, CancelOrderSuccDialog.ACTIVITY_ID);
+//					startActivityForResult(intent, SuccDialog.ACTIVITY_ID);
 				startActivity(intent);
 			}
 			public void onFailure(AbstractAction.ActionError error) {
