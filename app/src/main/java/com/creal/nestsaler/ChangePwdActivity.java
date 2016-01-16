@@ -67,7 +67,7 @@ public class ChangePwdActivity extends Activity {
         parameters.put("app_number", appNum);
         parameters.put("old_pwd", oldPwd.toString());
         parameters.put("new_pwd", Utils.md5(newPwd.toString()));
-        ChangePwdAction action = new ChangePwdAction(this, Constants.URL_CHARGE_MONEY, parameters);
+        ChangePwdAction action = new ChangePwdAction(this, Constants.URL_CHANGE_PWD, parameters);
         action.execute(new AbstractAction.UICallBack() {
             public void onSuccess(Object result) {
                 dialog.dismiss();
