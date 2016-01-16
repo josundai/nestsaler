@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.creal.nestsaler.actions.AbstractAction;
 import com.creal.nestsaler.actions.JSONObjectAction;
+import com.creal.nestsaler.util.JSONUtil;
 import com.creal.nestsaler.util.PreferenceUtil;
 import com.creal.nestsaler.views.HeaderView;
 import com.google.zxing.BarcodeFormat;
@@ -122,29 +123,18 @@ public class ScanBinCodeActivity extends Activity implements Callback {
 	private void sendChargingRequest(String scanCode){
 		Map parameters = new HashMap();
 		String appNum = PreferenceUtil.getString(this, Constants.APP_USER_APP_NUM, null);
-		parameters.put("money", String.valueOf(money) );
+		parameters.put("money", String.valueOf(money * 100) );
 		parameters.put("app_number", appNum);
 		parameters.put("qr_code", scanCode);
 
 		JSONObjectAction action = new JSONObjectAction(this, Constants.URL_CHARGE_MONEY, parameters);
-		action.execute(new JSONObjectAction.UICallBack() {
-			public void onSuccess(Object result)  {
-				if( result instanceof  JSONObject){
-					JSONObject jObj = (JSONObject) result;
-					String orderNumber = null;
-					String orderMoney = null;
-					try {
-						orderNumber = jObj.getString("prepaid_id");
-						orderMoney = jObj.getString("money");
-					} catch (JSONException e) {
-						e.printStackTrace();
-					}
-					Intent intent = new Intent(ScanBinCodeActivity.this, ChargeMoneyConfirmDialog.class);
-					intent.putExtra(ChargeMoneyConfirmDialog.ORDER_ID, orderNumber);
-					intent.putExtra(ChargeMoneyConfirmDialog.ORDER_MONEY, orderMoney);
+		action.execute(new JSONObjectAction.UICallBack<JSONObject>() {
+			public void onSuccess(JSONObject jObj)  {
+				Intent intent = new Intent(ScanBinCodeActivity.this, ChargeMoneyConfirmDialog.class);
+				intent.putExtra(ChargeMoneyConfirmDialog.ORDER_ID, JSONUtil.getString(jObj, "prepaid_id", ""));
+				intent.putExtra(ChargeMoneyConfirmDialog.ORDER_MONEY, JSONUtil.getString(jObj, "money", ""));
 //					startActivityForResult(intent, CancelOrderSuccDialog.ACTIVITY_ID);
-					startActivity(intent);
-				}
+				startActivity(intent);
 			}
 			public void onFailure(AbstractAction.ActionError error) {
 //				dialog.dismiss();

@@ -61,10 +61,25 @@ public class Utils {
         }
     }
 
+
+    public static String formatMoney(int number){
+        return formatMoney(String.valueOf(number));
+    }
+
+    public static String formatMoney(String number){
+        try {
+            double amount = Double.parseDouble(number);
+            DecimalFormat formatter = new DecimalFormat("#,##0.00");
+            return formatter.format(amount / 100);
+        } catch (Exception e) {
+            Log.e(tag, "Failed to format number" + number);
+            return null;
+        }
+    }
     public static String formatMoneyInYuan(String number){
         try {
             double amount = Double.parseDouble(number);
-            DecimalFormat formatter = new DecimalFormat("#,###.00");
+            DecimalFormat formatter = new DecimalFormat("#,##0.00");
             return formatter.format(amount);
         } catch (Exception e) {
             Log.e(tag, "Failed to format number" + number);

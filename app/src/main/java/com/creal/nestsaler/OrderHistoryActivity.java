@@ -11,6 +11,7 @@ import com.creal.nestsaler.actions.CommonPaginationAction;
 import com.creal.nestsaler.actions.PaginationAction;
 import com.creal.nestsaler.model.OrderRecord;
 import com.creal.nestsaler.util.PreferenceUtil;
+import com.creal.nestsaler.util.Utils;
 import com.creal.nestsaler.views.ptr.PTRListFragment;
 
 import java.util.HashMap;
@@ -51,7 +52,7 @@ public class OrderHistoryActivity extends FragmentActivity {
             holder.card.setText(item.getSellerName());
             holder.status.setText(item.getState().toString());
             holder.time.setText(String.format(getString(R.string.shop_time), item.getOrderTime()));
-            holder.cost.setText("" + ((float) item.getAmount() / 100) + "元");
+            holder.cost.setText(Utils.formatMoney(item.getAmount()) + "元");
             return convertView;
         }
 

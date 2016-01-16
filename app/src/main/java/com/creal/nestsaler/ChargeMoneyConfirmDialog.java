@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.creal.nestsaler.actions.AbstractAction;
 import com.creal.nestsaler.actions.JSONObjectAction;
 import com.creal.nestsaler.util.PreferenceUtil;
+import com.creal.nestsaler.util.Utils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -40,7 +41,7 @@ public class ChargeMoneyConfirmDialog extends Activity {
 
         if(orderId != null) {
             mOrderNumView.setText(this.getString(R.string.charge_money_orderNumber)+ orderId );
-            mMoneyView.setText( this.getString(R.string.charge_money_number) + money);
+            mMoneyView.setText( this.getString(R.string.charge_money_number) + Utils.formatMoney(money));
         }
     }
 
