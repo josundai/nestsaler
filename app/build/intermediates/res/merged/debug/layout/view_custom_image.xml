@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.creal.nestsaler.views.CustomizeImageView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:contentDescription="@string/hello_world" />
-<!-- From: file:/D:/project/nestsaler/app/src/main/res/layout/view_custom_image.xml -->
