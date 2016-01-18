@@ -84,5 +84,18 @@
             android:text="@string/login"
             android:textColor="@color/white"
             android:textSize="18sp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="15dip"
+            android:layout_marginTop="15dip"
+            android:background="@android:color/transparent"
+            android:gravity="left"
+            android:onClick="onTestClick"
+            android:text="登录测试账号123123/258369"
+            android:textColor="@color/deeperpink"
+            android:textSize="16sp" />
     </LinearLayout>
 </LinearLayout>

@@ -97,4 +97,12 @@ public class LoginActivity extends Activity {
         Intent intent = new Intent(this, CenterActivity.class);
         startActivity(intent);
     }
+
+    public void onTestClick(View view){
+        PreferenceUtil.saveString(this, Constants.APP_ACCOUNT_ACTIVE, Boolean.TRUE.toString());
+        PreferenceUtil.saveString(this, Constants.APP_USER_APP_NUM, "123123");
+        PreferenceUtil.saveString(this, Constants.APP_BINDING_KEY, "76065606194009136801671877123861577");
+        startActivity(new Intent(this, LoginActivity.class));
+        finish();
+    }
 }
